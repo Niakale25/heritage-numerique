@@ -1,0 +1,113 @@
+/* Dashboard Container (Contenu injecté dans .main) */
+.dashboard-container {
+    width: 100%; 
+    /* Nous enlevons la hauteur fixe (832px) pour qu'il s'adapte au contenu */
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Ombre légère pour encadrer */
+    
+    display: grid;
+    /* Définition des lignes : Header (auto), Cartes (auto), Activités (reste de l'espace) */
+    grid-template-rows: auto auto 1fr; 
+    gap: 40px; /* Espace entre les grandes sections */
+    padding: 30px; /* Padding interne pour le contenu du dashboard */
+}
+
+/* ---------------------------------------------------- */
+/* Header et Barre de Recherche (Correction d'alignement) */
+/* ---------------------------------------------------- */
+
+.dashboard-header {
+    display: flex;
+    flex-direction: column; /* Aligne la barre de recherche au-dessus du H1 */
+    padding-bottom: 20px; 
+    border-bottom: 1px solid #EEEEEE; /* Séparateur visuel */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 0; /* Géré par le margin-top du H1 */
+    background: #FAFAFA;
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+}
+
+.search-bar i { color: #999; margin-right: 10px; }
+.search-bar input { flex-grow: 1; border: none; outline: none; background: transparent; font-size: 16px; }
+
+.dashboard-header h1 { 
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 20px; /* Espace sous la barre de recherche */
+}
+
+/* ---------------------------------------------------- */
+/* Cartes Métriques (Correction de la structure pour deux lignes de 3) */
+/* ---------------------------------------------------- */
+
+.metric-cards {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* Crée 3 colonnes de taille égale */
+    gap: 20px; /* Espace entre les cartes */
+    /* Assure que les cartes débordent sur 2 lignes sans avoir besoin de classes d'ajustement manuelles */
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 100%; /* La grille gère la largeur */
+    padding: 20px;
+    border-radius: 12px;
+    background: #F8F8F8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    min-height: 100px;
+}
+
+/* La classe .photo-card-adjust est maintenant inutile et supprimée. */
+
+/* Styles d'icônes et de contenu des cartes (Identique) */
+.card-icon { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 8px; margin-right: 15px; }
+.card-icon i { font-size: 24px; color: #FFFFFF; }
+.icon-familles { background: rgba(140, 150, 160, 0.2); } .icon-familles i { color: #8C96A0; }
+.icon-utilisateurs { background: rgba(255, 204, 0, 0.2); } .icon-utilisateurs i { color: #FFCC00; }
+.icon-contes { background: rgba(188, 142, 92, 0.2); } .icon-contes i { color: #BC8E5C; }
+.icon-photos { background: rgba(255, 171, 64, 0.2); } .icon-photos i { color: #FFAB40; }
+.icon-chant { background: rgba(171, 120, 255, 0.2); } .icon-chant i { color: #AB78FF; }
+.icon-proverbes { background: rgba(52, 168, 83, 0.2); } .icon-proverbes i { color: #34A853; }
+.card-content { display: flex; flex-direction: column; }
+.card-content .count { font-size: 28px; font-weight: 700; color: #333; }
+.card-content .label { font-size: 14px; color: #666; margin-top: 2px; }
+
+/* ---------------------------------------------------- */
+/* Activités Récentes (Identique) */
+/* ---------------------------------------------------- */
+
+.recent-activities {
+    display: flex;
+    gap: 30px;
+}
+.recent-column { flex: 1; }
+.recent-column h2 { font-size: 20px; font-weight: 600; color: #333; margin-bottom: 20px; }
+.activity-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #F0F0F0; }
+.activity-item:last-child { border-bottom: none; }
+.item-icon-book { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: #F5F5F5; margin-right: 15px; }
+.item-icon-book i { font-size: 20px; color: #BC8E5C; }
+.item-details { flex-grow: 1; display: flex; flex-direction: column; }
+.item-title { font-size: 16px; font-weight: 500; color: #333; }
+.item-subtitle { font-size: 13px; color: #888; margin-top: 2px; }
+.item-date { font-size: 13px; color: #888; white-space: nowrap; }
+
+/* Family Item Specific Layout */
+.family-item { padding-left: 0; }
+.family-meta { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; /* Assure l'alignement des dates/membres à droite */
+    margin-left: 20px; 
+}
+.family-members { font-size: 13px; font-weight: 500; color: #333; margin-top: 2px; }

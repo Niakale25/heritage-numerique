@@ -1,0 +1,136 @@
+/* GLOBAL STYLES & FONT (Si vous utilisez un fichier global styles.css) */
+
+/* 1. FULL PAGE CONTAINER STYLING */
+.macbook-air-5 {
+    position: relative;
+    width: 1280px; 
+    height: 832px; 
+    background: #FFFFFF; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* 2. LOGIN CARD STYLING */
+.login-card {
+    width: 450px; 
+    padding: 40px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centré horizontalement dans la carte */
+}
+
+/* 3. NOUVEAU STYLE : ALIGNEMENT LOGO + TITRE */
+.header-container {
+    display: flex; /* Utilise Flexbox pour aligner l'image et le titre */
+    align-items: center; /* Aligne verticalement l'image et le texte */
+    margin-bottom: 30px;
+}
+
+.actual-logo {
+    width: 65px; /* Ajustez la taille de votre logo */
+    height: 65px;
+    margin-right: 15px; /* Espace entre le logo et le titre */
+    /* Assurez-vous que votre logo est bien un cercle si vous voulez l'effet du design original */
+    /* border-radius: 50%; */ 
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-top: 0; /* Important: retirer le margin-top si c'était pour le centrage */
+}
+
+/* 4. "CONNEXION" SECTION TITLE */
+.section-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* 5. INPUT GROUP STYLING */
+.login-form {
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    background-color: #F9F9F9; 
+}
+
+/* Ajoutez ceci pour vous assurer que les icônes sont rendues correctement */
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Assurez-vous d'avoir une taille suffisante */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Votre style spécifique pour l'input */
+.material-icons.icon {
+    margin-right: 10px;
+    color: #714D1D;
+}
+
+.input-group input {
+    flex-grow: 1; 
+    border: none;
+    outline: none; 
+    font-size: 16px;
+    padding: 0;
+    background-color: transparent; 
+}
+
+.input-group input::placeholder {
+    color: #AAAAAA;
+}
+
+/* 7. FORGOT PASSWORD LINK */
+.forgot-password { 
+    text-decoration: none;
+    font-size: 14px;
+    color: #007bff; 
+    margin-top: -10px; 
+    margin-bottom: 30px;
+    float: right;
+}
+
+/* 8. CONNECT BUTTON STYLING */
+.connect-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6D4C3A; 
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.connect-button:hover {
+    background-color: #5D3E2F; 
+}
