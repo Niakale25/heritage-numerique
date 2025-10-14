@@ -1,0 +1,181 @@
+/* ajout-contenu.component.css */
+
+.main-content {
+    flex-grow: 1;
+    padding: 30px 40px;
+    
+    /* MODIFICATION POUR LE CENTRAGE HORIZONTAL */
+    display: flex;
+    flex-direction: column; /* Organise le titre, le sous-titre et le formulaire verticalement */
+    align-items: center; /* Centre le contenu (le formulaire, le titre, etc.) horizontalement */
+}
+
+/* Le titre et le sous-titre doivent également être centrés */
+.main-title,
+.main-subtitle {
+    /* Assurez-vous que ces éléments prennent toute la largeur pour que le 'align-items: center' fonctionne */
+    width: 100%;
+    /* Centrage du texte lui-même */
+    text-align: center; 
+}
+
+.main-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.main-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #99928F;
+    margin-bottom: 40px;
+}
+
+.form-card {
+    /* La largeur maximale est essentielle pour le centrage */
+    width: 100%;
+    max-width: 550px; 
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+/* ---------------------------------------------------- */
+/* Le reste des styles du formulaire (inchangé) */
+/* ---------------------------------------------------- */
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.form-group select {
+    appearance: none;
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* File Upload Display */
+.file-upload {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    padding: 12px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-upload input[type="text"] {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.file-info {
+    display: block;
+    font-size: 12px;
+    color: #999999;
+    margin-top: 5px;
+}
+
+/* Translation Section */
+.translation-group {
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #F8F5F1;
+    border-radius: 8px;
+    border: 1px dashed #DCCDBA;
+}
+
+.translation-title {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #A36531;
+    margin-bottom: 5px;
+}
+
+.translation-title i {
+    margin-right: 8px;
+}
+
+.translation-info {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.translate-button {
+    padding: 10px 15px;
+    background: #A36531;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.translate-button:hover {
+    background: #8C5627;
+}
+
+/* Submit Button */
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    background: #A36531;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-button i {
+    margin-right: 10px;
+}
+
+.submit-button:hover {
+    background: #8C5627;
+}

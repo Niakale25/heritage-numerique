@@ -1,66 +1,89 @@
-/* Dashboard Container (Contenu injecté dans .main) */
-.dashboard-container {
-    width: 100%; 
-    /* Nous enlevons la hauteur fixe (832px) pour qu'il s'adapte au contenu */
+/* Global Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: #FFFFFF;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Ombre légère pour encadrer */
-    
-    display: grid;
-    /* Définition des lignes : Header (auto), Cartes (auto), Activités (reste de l'espace) */
-    grid-template-rows: auto auto 1fr; 
-    gap: 40px; /* Espace entre les grandes sections */
-    padding: 30px; /* Padding interne pour le contenu du dashboard */
+    min-height: 100vh;
 }
 
 /* ---------------------------------------------------- */
-/* Header et Barre de Recherche (Correction d'alignement) */
+/* Dashboard Container (Correction de la largeur) */
+/* ---------------------------------------------------- */
+
+.dashboard-container {
+    /* CORRECTION: Utilisez max-width et width: 100% pour que le contenu s'adapte */
+    max-width: 1280px; 
+    width: 100%; 
+    margin: 0 auto;
+    padding: 30px;
+    background: #FFFFFF;
+    position: relative;
+    display: grid;
+    grid-template-rows: auto auto 1fr; 
+    gap: 40px; 
+}
+
+/* ---------------------------------------------------- */
+/* Header and Search Bar (Correction de la largeur) */
 /* ---------------------------------------------------- */
 
 .dashboard-header {
     display: flex;
-    flex-direction: column; /* Aligne la barre de recherche au-dessus du H1 */
-    padding-bottom: 20px; 
-    border-bottom: 1px solid #EEEEEE; /* Séparateur visuel */
+    flex-direction: column;
 }
 
 .search-bar {
     display: flex;
     align-items: center;
-    
-    width: 100%;
+    /* CORRECTION: Utiliser une largeur fluide ou max-width */
+    width: 100%; /* Permet à la barre de recherche de prendre toute la largeur disponible */
+    max-width: 450px; /* Optionnel: limiter la largeur à une taille raisonnable sur grand écran */
     padding: 10px 15px;
-    margin-bottom: 0; /* Géré par le margin-top du H1 */
     background: #FAFAFA;
     border: 1px solid #EEEEEE;
     border-radius: 8px;
 }
 
-.search-bar i { color: #999; margin-right: 10px; }
-.search-bar input { flex-grow: 1; border: none; outline: none; background: transparent; font-size: 16px; }
+.search-bar i {
+    color: #999;
+    margin-right: 10px;
+}
 
-.dashboard-header h1 { 
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+}
+
+.dashboard-header h1 {
     font-size: 32px;
     font-weight: 600;
     color: #333;
-    margin-top: 20px; /* Espace sous la barre de recherche */
+    margin-top: 20px;
 }
 
 /* ---------------------------------------------------- */
-/* Cartes Métriques (Correction de la structure pour deux lignes de 3) */
+/* Metric Cards Section */
 /* ---------------------------------------------------- */
 
 .metric-cards {
+    /* La Grille est parfaite pour la réactivité */
     display: grid; 
-    grid-template-columns: repeat(3, 1fr); /* Crée 3 colonnes de taille égale */
-    gap: 20px; /* Espace entre les cartes */
-    /* Assure que les cartes débordent sur 2 lignes sans avoir besoin de classes d'ajustement manuelles */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
 }
 
 .card {
     display: flex;
     align-items: center;
-    width: 100%; /* La grille gère la largeur */
+    width: 100%;
     padding: 20px;
     border-radius: 12px;
     background: #F8F8F8;
@@ -68,46 +91,217 @@
     min-height: 100px;
 }
 
-/* La classe .photo-card-adjust est maintenant inutile et supprimée. */
+/* Card Icon Styling */
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
 
-/* Styles d'icônes et de contenu des cartes (Identique) */
-.card-icon { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 8px; margin-right: 15px; }
-.card-icon i { font-size: 24px; color: #FFFFFF; }
+.card-icon i {
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+/* Specific Card Icon Colors */
 .icon-familles { background: rgba(140, 150, 160, 0.2); } .icon-familles i { color: #8C96A0; }
 .icon-utilisateurs { background: rgba(255, 204, 0, 0.2); } .icon-utilisateurs i { color: #FFCC00; }
 .icon-contes { background: rgba(188, 142, 92, 0.2); } .icon-contes i { color: #BC8E5C; }
 .icon-photos { background: rgba(255, 171, 64, 0.2); } .icon-photos i { color: #FFAB40; }
 .icon-chant { background: rgba(171, 120, 255, 0.2); } .icon-chant i { color: #AB78FF; }
 .icon-proverbes { background: rgba(52, 168, 83, 0.2); } .icon-proverbes i { color: #34A853; }
-.card-content { display: flex; flex-direction: column; }
-.card-content .count { font-size: 28px; font-weight: 700; color: #333; }
-.card-content .label { font-size: 14px; color: #666; margin-top: 2px; }
+
+/* Card Content Styling */
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content .count {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+.card-content .label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 2px;
+}
 
 /* ---------------------------------------------------- */
-/* Activités Récentes (Identique) */
+/* Recent Activities Section (Styles adaptés à la largeur) */
 /* ---------------------------------------------------- */
 
 .recent-activities {
     display: flex;
     gap: 30px;
+    align-items: flex-start;
 }
-.recent-column { flex: 1; }
-.recent-column h2 { font-size: 20px; font-weight: 600; color: #333; margin-bottom: 20px; }
-.activity-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #F0F0F0; }
-.activity-item:last-child { border-bottom: none; }
-.item-icon-book { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: #F5F5F5; margin-right: 15px; }
-.item-icon-book i { font-size: 20px; color: #BC8E5C; }
-.item-details { flex-grow: 1; display: flex; flex-direction: column; }
-.item-title { font-size: 16px; font-weight: 500; color: #333; }
-.item-subtitle { font-size: 13px; color: #888; margin-top: 2px; }
-.item-date { font-size: 13px; color: #888; white-space: nowrap; }
 
-/* Family Item Specific Layout */
+.recent-column { 
+    flex: 1; 
+    /* CORRECTION: Utiliser 100% de la largeur du flex container (1fr) */
+    max-width: 100%; 
+}
+
+.recent-column h2 { 
+    font-size: 20px; 
+    font-weight: 700; 
+    color: #000000; 
+    margin-bottom: 20px; 
+}
+
+/* --- General Activity Item Styling --- */
+.activity-item { 
+    display: flex; 
+    align-items: center; 
+}
+
+.item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Récents Récits (Individual Story Cards) --- */
+
+.story-card {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-bottom: 15px; 
+    padding: 0 15px; 
+}
+
+.story-card .activity-item {
+    padding: 20px 0;
+}
+
+/* Book Icon Styling */
+.item-icon-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background: #F8F5F1;
+    margin-right: 20px;
+}
+
+.item-icon-book i {
+    font-size: 20px;
+    color: #BC8E5C;
+}
+
+.item-title { 
+    font-size: 16px; 
+    font-weight: 700; 
+    color: #000000; 
+    margin-bottom: 4px;
+}
+
+.item-subtitle { 
+    font-size: 13px; 
+    color: #000000; 
+}
+
+.item-date { 
+    font-size: 12px; 
+    color: #000000; 
+    white-space: nowrap;
+}
+
+
+/* --- Récents Familles (Container and Items) --- */
+
+.family-list-container {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 20px 25px; 
+}
+
+.family-list-container .activity-item {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.family-list-container .activity-item:last-child,
+.family-list-container .no-border {
+    border-bottom: none;
+}
+
 .family-item { padding-left: 0; }
+
+/* Family Item Details (Title/Subtitle) */
+.family-item .item-details {
+    flex-grow: 1; 
+}
+
+.family-item .item-title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.family-item .item-subtitle {
+    font-size: 12px;
+    line-height: 1.2;
+    color: #000000;
+}
+
+/* Family Metadata (Members/Date) */
 .family-meta { 
     display: flex; 
     flex-direction: column; 
-    align-items: flex-end; /* Assure l'alignement des dates/membres à droite */
+    align-items: flex-end; 
     margin-left: 20px; 
 }
-.family-members { font-size: 13px; font-weight: 500; color: #333; margin-top: 2px; }
+
+.family-members { 
+    font-size: 13px; 
+    font-weight: 400; 
+    color: #000000; 
+    margin-top: 0;
+    line-height: 1.8;
+}
+
+.family-meta .item-date { 
+    font-size: 12px; 
+    color: #000000;
+    line-height: 1.2;
+}
+
+
+/* --- Media Query (Ajouté pour une meilleure adaptabilité sur petit écran) --- */
+
+@media (max-width: 800px) {
+    .metric-cards {
+        /* Passe à deux colonnes sur les tablettes */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .recent-activities {
+        /* Passe à une colonne pour les activités récentes */
+        flex-direction: column;
+    }
+    
+    .recent-column {
+        /* Prend toute la largeur disponible */
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .metric-cards {
+        /* Passe à une colonne sur les téléphones */
+        grid-template-columns: 1fr;
+    }
+}

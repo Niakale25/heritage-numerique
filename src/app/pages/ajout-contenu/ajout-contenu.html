@@ -1,0 +1,61 @@
+<main class="main-content">
+    <h1 class="main-title">Ajouter un nouveau contenu</h1>
+    <p class="main-subtitle">Partager un récit, une musique, une photo ou un proverbe avec votre famille</p>
+    
+    <div class="form-card">
+        <form (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+                <label for="type">Type de contenu</label>
+                <select id="type" required>
+                    <option value="" disabled selected>Sélectionner un type</option>
+                    <option value="recit">Récit</option>
+                    <option value="musique">Musique</option>
+                    <option value="photo">Photo</option>
+                    <option value="proverbe">Proverbe</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" id="title" placeholder="Ex: L'histoire du lion et du chasseur" required>
+            </div>
+
+            <div class="form-group">
+                <label for="langue">Langue</label>
+                <select id="langue" required>
+                    <option value="" disabled selected>Sélectionner une langue</option>
+                    <option value="fr">Français</option>
+                    <option value="en">Anglais</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Contenu / Description</label>
+                <textarea id="description" placeholder="Écrivez votre récit, les paroles, la description..."></textarea>
+            </div>
+
+           <div class="form-group">
+    <label for="media">Fichier média (optionnel)</label>
+    <div class="file-upload">
+        
+        <input type="file" #fileInput id="media-file" style="display: none;" (change)="onFileSelected($event)">
+        
+        <input type="text" [value]="fileName" readonly (click)="fileInput.click()">
+        
+    </div>
+     <span class="file-info">Images, audio ou vidéo (max 50 MB)</span>
+</div>
+            
+            <div class="translation-group">
+                <span class="translation-title"><i class="material-icons">translate</i> Traduction automatique</span>
+                <p class="translation-info">Activer la traduction pour rendre ce contenu accessible dans d'autres langues</p>
+                <button type="button" class="translate-button">Traduire automatique</button>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <i class="material-icons">add</i> Ajouter un Contenu
+            </button>
+        </form>
+    </div>
+</main>
