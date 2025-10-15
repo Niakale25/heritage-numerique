@@ -7,7 +7,15 @@ import { AjoutContenu } from './pages/ajout-contenu/ajout-contenu';
 export const routes: Routes = [
     {path:'',component:Accueil,children:[
         {path:'',component:Dashboard},
-        {path:'ajoutContenu',component:AjoutContenu}
+        {path:'accueil',component:Dashboard},
+        {path:'famille',component:Dashboard},
+        {path:'accueil',component:Dashboard},
+        {path:'accueil',component:Dashboard},
+        {path:'accueil',component:Dashboard},
+        {path:'accueil',component:Dashboard},
+        {path:'accueil',component:Dashboard},
+
+        {path:'ajouterContenu',component:AjoutContenu}
     ]},
 
         {path:'login',component:Login }

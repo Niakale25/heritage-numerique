@@ -15,6 +15,10 @@
     /* Assure que la barre latérale et le contenu principal s'étirent en hauteur */
     grid-template-rows: 1fr;
 }
+.menu .selected{
+    background-color: #8D724D;
+    color: whitesmoke;
+}
 
 /* Styles pour Frame 151 (SIDEBAR) - Pas de changement nécessaire dans ces styles internes */
 .sidebar-container {
