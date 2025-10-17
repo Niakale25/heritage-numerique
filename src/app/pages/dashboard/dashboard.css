@@ -12,11 +12,10 @@ body {
 }
 
 /* ---------------------------------------------------- */
-/* Dashboard Container (Correction de la largeur) */
+/* Dashboard Container */
 /* ---------------------------------------------------- */
 
 .dashboard-container {
-    /* CORRECTION: Utilisez max-width et width: 100% pour que le contenu s'adapte */
     max-width: 1280px; 
     width: 100%; 
     margin: 0 auto;
@@ -29,26 +28,64 @@ body {
 }
 
 /* ---------------------------------------------------- */
-/* Header and Search Bar (Correction de la largeur) */
+/* NOUVEL HEADER ADAPTÉ (Rectangle 172 + Profil Admin) */
 /* ---------------------------------------------------- */
 
-.dashboard-header {
+.dashboard-header-new {
     display: flex;
     flex-direction: column;
 }
 
+/* Conteneur du bandeau gris arrondi (Rectangle 172) */
+.header-content-container {
+    width: 100%;
+    height: 83px; 
+    margin-bottom: 20px;
+    
+    /* Styles du bandeau */
+    background: rgba(244, 244, 244, 0.81);
+    border-radius: 20px;
+    
+    /* Disposition interne */
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 25px; 
+}
+
+/* Ajustement du titre h1 pour qu'il soit sous le bandeau */
+.dashboard-header-new h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 0; 
+}
+
+/* ---------------------------------------------------- */
+/* Barre de Recherche (Ajustée pour le nouveau bandeau) */
+/* ---------------------------------------------------- */
+
+/* La classe .search-bar est réutilisée avec un style spécifique pour le nouvel en-tête */
 .search-bar {
     display: flex;
     align-items: center;
-    /* CORRECTION: Utiliser une largeur fluide ou max-width */
-    width: 100%; /* Permet à la barre de recherche de prendre toute la largeur disponible */
-    max-width: 450px; /* Optionnel: limiter la largeur à une taille raisonnable sur grand écran */
-    padding: 10px 15px;
-    background: #FAFAFA;
-    border: 1px solid #EEEEEE;
-    border-radius: 8px;
 }
 
+.search-bar.new-search-bar {
+    /* Dimensions spécifiques au design */
+    width: 375px; 
+    max-width: none;
+    height: 44px;
+    
+    /* Styles spécifiques */
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+    padding: 10px 15px; 
+    box-shadow: none; 
+}
+
+/* Styles communs à toutes les barres de recherche */
 .search-bar i {
     color: #999;
     margin-right: 10px;
@@ -62,19 +99,36 @@ body {
     font-size: 16px;
 }
 
-.dashboard-header h1 {
-    font-size: 32px;
-    font-weight: 600;
-    color: #333;
-    margin-top: 20px;
+/* ---------------------------------------------------- */
+/* Section Profil Admin */
+/* ---------------------------------------------------- */
+
+.admin-profile-section {
+    display: flex;
+    align-items: center;
 }
 
+.profile-icon {
+    font-size: 24px;
+    color: #333; 
+    margin-right: 10px;
+}
+
+.admin-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #967B56; 
+    white-space: nowrap; 
+}
+
+
 /* ---------------------------------------------------- */
-/* Metric Cards Section */
+/* Metric Cards Section (Inchangé) */
 /* ---------------------------------------------------- */
 
 .metric-cards {
-    /* La Grille est parfaite pour la réactivité */
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px; 
@@ -134,7 +188,7 @@ body {
 }
 
 /* ---------------------------------------------------- */
-/* Recent Activities Section (Styles adaptés à la largeur) */
+/* Recent Activities Section (Inchangé) */
 /* ---------------------------------------------------- */
 
 .recent-activities {
@@ -145,7 +199,6 @@ body {
 
 .recent-column { 
     flex: 1; 
-    /* CORRECTION: Utiliser 100% de la largeur du flex container (1fr) */
     max-width: 100%; 
 }
 
@@ -279,29 +332,36 @@ body {
 }
 
 
-/* --- Media Query (Ajouté pour une meilleure adaptabilité sur petit écran) --- */
+/* --- Media Query (Inchangé) --- */
 
 @media (max-width: 800px) {
+    /* Ajustements pour la réactivité si nécessaire */
     .metric-cards {
-        /* Passe à deux colonnes sur les tablettes */
         grid-template-columns: repeat(2, 1fr);
     }
     
     .recent-activities {
-        /* Passe à une colonne pour les activités récentes */
         flex-direction: column;
     }
     
     .recent-column {
-        /* Prend toute la largeur disponible */
         width: 100%;
         max-width: none;
+    }
+    
+    .search-bar.new-search-bar {
+        /* Permettre à la barre de recherche de s'étendre sur les petits écrans */
+        width: 100%;
+    }
+    
+    .header-content-container {
+        /* Réduire le padding sur mobile */
+        padding: 0 15px; 
     }
 }
 
 @media (max-width: 550px) {
     .metric-cards {
-        /* Passe à une colonne sur les téléphones */
         grid-template-columns: 1fr;
     }
 }

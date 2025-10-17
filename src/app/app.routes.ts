@@ -3,13 +3,15 @@ import { Accueil } from './pages/accueil/accueil';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Login } from './pages/login/login';
 import { AjoutContenu } from './pages/ajout-contenu/ajout-contenu';
+import { Famille } from './pages/famille/famille';
+import { Musique } from './pages/musique/musique';
 
 export const routes: Routes = [
     {path:'',component:Accueil,children:[
         {path:'',component:Dashboard},
         {path:'accueil',component:Dashboard},
-        {path:'famille',component:Dashboard},
-        {path:'accueil',component:Dashboard},
+        {path:'famille',component:Famille},
+        {path:'music',component:Musique},
         {path:'accueil',component:Dashboard},
         {path:'accueil',component:Dashboard},
         {path:'accueil',component:Dashboard},

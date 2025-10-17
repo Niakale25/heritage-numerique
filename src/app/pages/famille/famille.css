@@ -1,0 +1,180 @@
+
+/* Le conteneur principal de la page à côté de la sidebar */
+.main-content-familles {
+    flex-grow: 1;
+    padding: 24px 30px; 
+    display: flex;
+    flex-direction: column;
+}
+/* EN-TÊTE  */
+.header-familles {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.header-content-container {
+    width: 100%;
+    height: 83px; 
+    background: rgba(239, 234, 234, 0.81);
+    border-radius: 20px;  
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 25px; 
+}
+
+/* Barre de Recherche  */
+.search-bar {
+    width: 375px; 
+    height: 44px;
+    display: flex;
+    align-items: center;  
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 0 15px;
+}
+
+.search-bar i {
+    font-size: 21px; 
+    color: rgba(0, 0, 0, 0.5); 
+    margin-right: 10px;
+}
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Profil Admin */
+.admin-profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    font-size: 24px;
+    color: #333; 
+    margin-right: 10px;
+}
+
+.admin-text {
+    /* Admin */
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: var(--color-brown); /* #967B56 */
+    white-space: nowrap; 
+}
+/* TITRE DE LA PAGE (Familles) */
+.page-title-familles {
+    /* Basé sur Familles */
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+/* CONTENEUR PRINCIPAL DE LA LISTE (Rectangle 187) */
+.familles-list-card {
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 20px 25px; 
+}
+
+/* En-tête du conteneur pour le bouton de filtre */
+.card-header-familles {
+    display: flex;
+    justify-content: flex-end; /* Pousse le bouton à droite */
+    margin-bottom: 15px;
+}
+
+/* BOUTON FILTRER PAR PÉRIODE (Basé sur Button) */
+.filter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    width: 181px;
+    height: 32px;
+    
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filter-button i {
+    font-size: 18px;
+    color: #333;
+}
+
+.filter-button .arrow-down {
+    margin-left: 5px;
+}
+
+/* ÉLÉMENTS DE LA LISTE DE FAMILLE  */
+
+.family-item-card {
+    width: 100%;
+    height: 64px;     
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    margin-bottom: 10px; /* Espace entre les items */
+    padding: 0 30px; /* Espacement intérieur */
+}
+
+.item-details-famille {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-title-famille {
+    /* Basé sur Famille Dolo (titre) */
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.2; 
+    color: #000000;
+}
+
+.item-subtitle-famille {
+    /* Basé sur Oumar Dolo (sous-titre) */
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #000000;
+}
+
+.family-meta-famille {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligne les éléments à droite */
+}
+
+.item-date-famille {
+    /* Basé sur 10/10/2025 */
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.family-members-famille {
+    /* Basé sur 7 membres */
+    font-size: 13px;
+    line-height: 1.2;
+    color: #000000;
+}
