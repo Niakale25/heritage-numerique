@@ -5,6 +5,7 @@ import { Login } from './pages/login/login';
 import { AjoutContenu } from './pages/ajout-contenu/ajout-contenu';
 import { Famille } from './pages/famille/famille';
 import { Musique } from './pages/musique/musique';
+import { Utilisateur } from './pages/utilisateur/utilisateur';
 
 export const routes: Routes = [
     {path:'',component:Accueil,children:[
@@ -12,7 +13,7 @@ export const routes: Routes = [
         {path:'accueil',component:Dashboard},
         {path:'famille',component:Famille},
         {path:'music',component:Musique},
-        {path:'accueil',component:Dashboard},
+        {path:'utilisateur',component:Utilisateur},
         {path:'accueil',component:Dashboard},
         {path:'accueil',component:Dashboard},
         {path:'accueil',component:Dashboard},

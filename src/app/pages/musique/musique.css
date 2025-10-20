@@ -1,6 +1,4 @@
-/* ---------------------------------------------------- */
-/* Globales et Conteneur Principal (pour l'intégration au layout) */
-/* ---------------------------------------------------- */
+
 :root {
     --color-brown: #967B56;
     --color-light-brown: #F8F5F1; /* Couleur de fond de l'icône dans la liste Récits */
@@ -13,10 +11,6 @@
     flex-direction: column;
 }
 
-/* ---------------------------------------------------- */
-/* EN-TÊTE (Réutilisé du Dashboard) */
-/* ---------------------------------------------------- */
-
 .header-chant {
     width: 100%;
     margin-bottom: 30px;
@@ -25,11 +19,9 @@
 .header-content-container {
     /* Basé sur Rectangle 172: width: 830px; height: 83px; */
     width: 100%;
-    height: 83px; 
-    
+    height: 83px;  
     background: rgba(244, 244, 244, 0.81);
     border-radius: 20px;
-    
     display: flex;
     align-items: center; 
     justify-content: space-between; 
@@ -85,9 +77,7 @@
     white-space: nowrap; 
 }
 
-/* ---------------------------------------------------- */
 /* TITRE DE LA PAGE (Chant culturels) */
-/* ---------------------------------------------------- */
 
 .page-title-chant {
     font-family: 'Inter', sans-serif;
