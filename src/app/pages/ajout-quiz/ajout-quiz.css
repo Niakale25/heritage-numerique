@@ -1,0 +1,206 @@
+/* Styles pour le conteneur principal (centrage) */
+.main-content-form-quiz {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu horizontalement */
+    padding: 20px;
+}
+
+/* ---------------------------------------------------- */
+/* EN-TÊTE DU FORMULAIRE */
+/* ---------------------------------------------------- */
+
+.form-title {
+    /* Ajouter un nouveau quiz */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-subtitle {
+    /* Partager un récit... */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #99928F;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ---------------------------------------------------- */
+/* CARTE DU FORMULAIRE (Rectangle 186) */
+/* ---------------------------------------------------- */
+
+.quiz-form-card {
+    /* Basé sur Rectangle 186: width: 503px; height: 620px; */
+    width: 100%;
+    max-width: 503px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    padding: 35px 40px;
+}
+
+/* Styles génériques des inputs/labels */
+label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #000000;
+    line-height: 36px;
+    display: block;
+    margin-top: 15px;
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Titre du Conte */
+.form-section-title input {
+    /* Le lion roi des animaux */
+    height: 40px;
+}
+
+/* Questions */
+.question-label {
+    /* Questions 1 */
+    font-size: 12px;
+}
+
+.question-input {
+    /* Rectangle 78 */
+    height: 30px;
+}
+
+
+.response-type-selection {
+    display: flex;
+    gap: 50px;
+    margin: 25px 0;
+    align-items: center;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-option span {
+    /* QCM / Vrai/Faux */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.custom-radio {
+    /* Ellipse 42 & 40 */
+    width: 25px;
+    height: 25px;
+    background: #EEE3CF; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.custom-radio.selected .inner-dot {
+    /* Ellipse 41 (point vert pour sélection) */
+    width: 10px;
+    height: 10px;
+    background: #158B4D ;
+    border-radius: 50%;
+}
+
+/* ---------------------------------------------------- */
+/* Réponses QCM */
+/* ---------------------------------------------------- */
+
+.response-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.response-item input {
+    /* Réponse 1, 2, 3, 4 */
+    flex-grow: 1;
+    height: 30px;
+}
+
+.radio-answer {
+    /* Ellipse 32, 34, 36, 38 */
+    width: 34px;
+    height: 34px;
+    background: #EEE3CF; 
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.delete-icon {
+    /* Vecteurs de la poubelle */
+    color: #FF0D0D; /* Rouge */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------- */
+/* BOUTONS D'ACTIONS */
+/* ---------------------------------------------------- */
+
+.btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.question-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-add-question {
+    /* Ajouter une question */
+    background: #967B56; 
+    color: #FFFFFF;
+}
+
+.btn-add-response {
+    /* Ajouter une réponse */
+    background: #158B4D; /* Vert */
+    color: #FFFFFF;
+}
+
+.btn-validate {
+    /* Valider */
+    display: block;
+    width: 150px;
+    height: 45px;
+    margin: 40px auto 0; 
+    background: #967B56; 
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+}

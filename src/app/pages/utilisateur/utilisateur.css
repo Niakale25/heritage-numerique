@@ -10,10 +10,19 @@
     margin-bottom: 30px;
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  margin-right: 5px;
+}
+
 .header-content-container{
     width: 100%;
     height: 83px;
-    background: rgba(244, 244, 244, 0.81);
+    background: rgba(235, 234, 234, 0.81);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -51,17 +60,141 @@
     align-items: center;
 }
 
-.profil-icon{
-    font-size: 24px;
-    color: #333;
-    margin-right: 10px;
-}
 
 .admin-text{
     font-weight: 700;
     font-size: 20px;
     line-height: 36px;
-    color: var(--color-brown);
+    color: #967B56;
     white-space: nowrap;
 }
+.page-title-user{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    color: #967B56;
+    margin-bottom: 25px;
+}
 
+/*Tableau de données*/
+.users-data-card{
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0,0, 0.25);
+    border-radius: 15px;
+    padding-bottom: 20px;
+    position: relative;
+}
+/*Structure de colonne du tableau*/
+.users-table-header,
+.user-row{
+    display: grid;
+    grid-template-columns: 150px 1fr 110px 120px 1fr 120px;
+    gap: 10px;
+    align-items: center;
+    padding: 0 20px;
+}
+.users-table-header{
+    height: 63px;
+    background: #967B56;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 15px 15px 0 0;
+}
+/*ligne*/
+.user-row{
+    min-height: 79px; /*Epace visuel pour chaque ligne*/
+    border-bottom: 1px solid rgba(0, 0,0, 0.1);
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+}
+.user-row:last-child{
+    border-bottom: none;
+}
+.user-details{
+    display: flex;
+    align-items: center;
+}
+.user-avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    background: #EEE;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pagination-header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   padding: 10px 20px;
+   margin-bottom: 5px;
+}
+
+.pagination-info{
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    margin-right: 15px;
+}
+
+.pagination-controls{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.control-icon {
+    /* < > */
+    font-size: 20px;
+    color: #000000;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    /* Sur les écrans plus petits, l'email et le téléphone peuvent devenir plus serrés */
+    .users-table-header,
+    .user-row {
+        grid-template-columns: 150px 1fr 100px 100px 1fr 100px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 800px) {
+    /* Empilement de l'en-tête */
+    .header-content-container {
+        flex-direction: column; 
+        height: auto;
+        padding: 15px;
+    }
+    .search-bar {
+        width: 100%;
+    }
+    .admin-profile-section {
+        margin-top: 10px;
+    }
+    
+    /* Le tableau devient trop large, forçons un défilement horizontal */
+    .users-data-card {
+        overflow-x: auto;
+    }
+    
+    .users-table-header,
+    .user-row {
+        /* Largeur minimale pour éviter l'écrasement */
+        width: 850px; 
+        grid-template-columns: 150px 120px 100px 100px 180px 100px;
+    }
+    
+    .pagination-header {
+        justify-content: space-between;
+    }
+}
