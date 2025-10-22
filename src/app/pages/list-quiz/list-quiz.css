@@ -1,9 +1,14 @@
+/* ---------------------------------------------------- */
 /* Le conteneur principal de la page à côté de la sidebar */
+/* ---------------------------------------------------- */
 .main-content-quiz {
     flex-grow: 1;
     padding: 24px 30px; 
     display: flex;
     flex-direction: column;
+    /* CHAGEMENT MAJEUR: Alignement au début pour prendre la largeur */
+    align-items: flex-start; 
+    width: 100%; /* Prend toute la largeur disponible */
 }
 
 /* ---------------------------------------------------- */
@@ -74,26 +79,55 @@
     white-space: nowrap;
 }
 
+/* ---------------------------------------------------- */
+/* TITRE DE PAGE ET BOUTON AJOUTER QUIZ */
+/* ---------------------------------------------------- */
+.page-header-actions {
+    /* NOUVEAU: Conteneur Flex pour aligner le titre et le bouton */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* Aligné avec la nouvelle taille de la carte */
+    margin-bottom: 20px;
+}
 
 .page-title-quiz {
-    /* Quiz */
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 32px;
     line-height: 36px;
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 0; /* Retiré la marge inférieure */
 }
 
+/* Styles du bouton Ajouter quiz */
+.btn-add-quiz {
+    /* CHAGEMENT: Nom de classe spécifique pour le bouton */
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: #967B56; 
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    transition: background-color 0.2s;
+}
+
+/* ---------------------------------------------------- */
+/* CARTE DE LA LISTE DE QUIZ (Conteneur) */
+/* ---------------------------------------------------- */
 
 .quiz-list-card {
-    /* Basé sur Rectangle 187: width: 846px; height: 580px; */
-    width: 100%;
-    max-width: 846px; /* Pour correspondre aux autres pages */
+    /* CHAGEMENT MAJEUR: Taille élargie et largeur ajustée à 100% du conteneur */
+    width: 100%; 
+    max-width: 1000px; /* NOUVELLE LARGEUR MAXIMALE */
     background: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     padding: 20px 25px; 
+    margin-bottom: 30px; /* Ajout d'une marge inférieure */
 }
 
 /* Titre interne (Liste des Quizs) */
@@ -104,12 +138,12 @@
     line-height: 36px;
     color: #000000;
     margin-bottom: 15px;
-    margin-left: 10px; /* Petit décalage pour correspondre au design */
+    margin-left: 10px; 
 }
 
 
 .quiz-item-card {
-    /* Basé sur Rectangle 176: width: 742px; height: 64px; */
+    /* CHAGEMENT: Enlève le width fixe pour qu'il s'adapte au conteneur */
     width: 100%;
     height: 64px; 
     
@@ -118,40 +152,47 @@
     justify-content: space-between;
     
     background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+    /* AJOUT: Ombre interne et légère pour un meilleur effet de carte */
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2); 
     border-radius: 5px;
-    margin-bottom: 15px; /* Espace entre les items */
-    padding: 0 20px; /* Espacement intérieur */
+    margin-bottom: 15px; 
+    padding: 0 20px; 
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
+
+.quiz-item-card:hover {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée au survol */
+    transform: translateY(-2px);
+}
+
 
 /* Conteneur de l'icône (Rectangle 51) */
 .item-icon-container {
-    /* Basé sur Rectangle 51: width: 35px; height: 35px; */
     width: 35px;
     height: 35px;
-    background: #EEE3CF; /* #EEE3CF */
+    background: #EEE3CF; 
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 15px;
+    flex-shrink: 0;
 }
 
 .icon-book {
-    /* Basé sur akar-icons:book */
-    font-size: 20px; /* Ajusté un peu pour un meilleur visuel */
-    color: var(--color-brown); /* #967B56 */
+    font-size: 20px; 
+    color: #967B56; 
 }
 
 .item-details-quiz {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 1; /* Prend l'espace central */
+    flex-grow: 1; 
 }
 
 .item-title-quiz {
-    /* Basé sur types : Contes */
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -160,7 +201,6 @@
 }
 
 .item-subtitle-quiz {
-    /* Basé sur Quiz sur le conte Lion */
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -171,12 +211,12 @@
 .quiz-meta-quiz {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Aligne les éléments à droite */
-    flex-shrink: 0; /* Empêche de rétrécir */
+    align-items: flex-end; 
+    flex-shrink: 0; 
+    margin-left: 20px; /* Espace entre les détails et la méta */
 }
 
 .item-date-quiz {
-    /* Basé sur 10/10/2025 */
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -186,7 +226,6 @@
 }
 
 .quiz-questions-quiz {
-    /* Basé sur 7 questions */
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 13px;

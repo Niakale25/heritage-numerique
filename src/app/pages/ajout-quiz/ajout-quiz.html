@@ -6,10 +6,16 @@
     <div class="quiz-form-card">
         
         <div class="form-section-title">
-            <label for="conte-title">Contes</label>
-            <input type="text" id="conte-title" placeholder="Le lion roi des animaux">
+            <label for="conte-select">Contes</label>
+            <div class="custom-select-container">
+                <select id="conte-select" class="conte-select-input">
+                    <option value="" disabled selected>Le lion roi des animaux</option>
+                    <option value="conte1">Le Conte du Pêcheur</option>
+                    <option value="conte2">L'histoire du lièvre et de la tortue</option>
+                    </select>
+                <i class="material-icons select-arrow">keyboard_arrow_down</i>
+            </div>
         </div>
-
         <div class="question-container">
             <div class="question-block">
                 <label for="question-1" class="question-label">Questions 1</label>
@@ -22,7 +28,7 @@
                         </div>
                         <span>QCM</span>
                     </div>
-                    <div class="radio-option true-false-option" routerLink="quiz/vraiFaux">
+                    <div class="radio-option true-false-option" [routerLink]="['/quiz/new/vraiFaux']">
                         <div class="custom-radio" ></div>
                         <span>Vrai/Faux</span>
                     </div>

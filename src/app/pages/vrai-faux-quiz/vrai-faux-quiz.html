@@ -6,10 +6,16 @@
     <div class="quiz-form-card">
         
         <div class="form-section-title">
-            <label for="conte-title">Contes</label>
-            <input type="text" id="conte-title" placeholder="Le lion roi des animaux">
+            <label for="conte-select">Contes</label>
+            <div class="custom-select-container">
+                <select id="conte-select" class="conte-select-input">
+                    <option value="" disabled selected>Le lion roi des animaux</option>
+                    <option value="conte1">Le Conte du Pêcheur</option>
+                    <option value="conte2">L'histoire du lièvre et de la tortue</option>
+                    </select>
+                <i class="material-icons select-arrow">keyboard_arrow_down</i>
+            </div>
         </div>
-
         <div class="question-container">
             
             <div class="question-block">
@@ -17,7 +23,7 @@
                 <input type="text" id="question-1" class="question-input" placeholder="Ex: L'histoire du lion et du chasseur?">
                 
                 <div class="response-type-selection">
-                    <div class="radio-option qcm-option">
+                    <div class="radio-option qcm-option" [routerLink]="['/quiz/new/qcm']">
                         <div class="custom-radio"></div>
                         <span>QCM</span>
                     </div>
@@ -33,12 +39,10 @@
                     <div class="response-item">
                         <input type="text" value="Vrai" readonly>
                         <div class="radio-answer"></div>
-                        <i class="material-icons delete-icon">delete</i>
                     </div>
                     <div class="response-item">
                         <input type="text" value="Faux" readonly>
                         <div class="radio-answer"></div>
-                        <i class="material-icons delete-icon">delete</i>
                     </div>
                 </div>
                 
@@ -52,8 +56,8 @@
                 <input type="text" id="question-2" class="question-input" placeholder="Ex: L'histoire du lion et du chasseur?">
                 
                 <div class="response-type-selection">
-                    <div class="radio-option qcm-option">
-                        <div class="custom-radio" routerLink="new"></div>
+                    <div class="radio-option qcm-option" [routerLink]="['/quiz/new/qcm']">
+                        <div class="custom-radio" ></div>
                         <span>QCM</span>
                     </div>
                     <div class="radio-option true-false-option">

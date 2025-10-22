@@ -130,10 +130,55 @@ input[type="text"] {
     color: #333;
 }
 
-/* Titre du Conte */
-.form-section-title input {
+/* ---------------------------------------------------- */
+/* NOUVEAUX STYLES SÉLECTEUR (Contes) */
+/* ---------------------------------------------------- */
+
+.custom-select-container {
+    /* Conteneur pour encadrer le select et la flèche */
+    position: relative;
+    width: 100%;
     height: 40px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
 }
+
+.conte-select-input {
+    /* Style du <select> lui-même */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    width: 100%;
+    height: 100%;
+    padding: 0 40px 0 10px; /* Espace pour la flèche à droite */
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+}
+
+/* S'assurer que le placeholder (option disabled selected) est bien stylisé */
+.conte-select-input option[disabled] {
+    color: #999;
+}
+
+.select-arrow {
+    /* Position de la flèche */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #666;
+    pointer-events: none; 
+}
+
 
 /* Questions */
 .question-label {
@@ -159,6 +204,7 @@ input[type="text"] {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .radio-option span {
@@ -212,6 +258,7 @@ input[type="text"] {
     background: #EEE3CF; /* Marron Clair BG */
     border-radius: 50%;
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .delete-icon {

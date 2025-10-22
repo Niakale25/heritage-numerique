@@ -8,36 +8,26 @@
             <input type="text" placeholder="Recherche">
         </div>
         <div class="admin-profil-section">
-             <span class="material-symbols-outlined">
-account_circle
-</span>
+             <span class="material-symbols-outlined">account_circle</span>
              <span class="admin-text">Admin</span>
         </div>
       </div>
     </header>
 
-    <h1 class="page-title-quiz">Quiz</h1>
+    <!-- NOUVEAU CONTENEUR POUR LE TITRE ET LE BOUTON -->
+    <div class="page-header-actions">
+        <h1 class="page-title-quiz">Quiz</h1>
+        <!-- Le bouton est maintenant à l'intérieur de ce conteneur -->
+        <button routerLink="new" class="btn btn-add-quiz">Ajouter quiz</button>
+    </div>
     
     <div class="quiz-list-card">
         
         <h2 class="list-title">Liste des Quizs</h2>
         
+        <!-- Le conteneur quiz-list est laissé tel quel, mais le CSS va s'assurer du positionnement -->
         <div class="quiz-list">
             
-            <div class="quiz-item-card" routerLink="new" style="cursor: pointer;">
-                <div class="item-icon-container">
-                    <i class="material-icons icon-book">book</i>
-                </div>
-                <div class="item-details-quiz">
-                    <span class="item-title-quiz">types : Contes</span>
-                    <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
-                </div>
-                <div class="quiz-meta-quiz">
-                    <span class="item-date-quiz">10/10/2025</span>
-                    <span class="quiz-questions-quiz">7 questions</span>
-                </div>
-            </div>
-            
             <div class="quiz-item-card">
                 <div class="item-icon-container">
                     <i class="material-icons icon-book">book</i>
@@ -52,47 +42,62 @@ account_circle
                 </div>
             </div>
             
-            <div class="quiz-item-card">
-                <div class="item-icon-container">
-                    <i class="material-icons icon-book">book</i>
-                </div>
-                <div class="item-details-quiz">
-                    <span class="item-title-quiz">types : Contes</span>
-                    <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
-                </div>
-                <div class="quiz-meta-quiz">
-                    <span class="item-date-quiz">10/10/2025</span>
-                    <span class="quiz-questions-quiz">7 questions</span>
-                </div>
-            </div>
-            
-            <div class="quiz-item-card">
-                <div class="item-icon-container">
-                    <i class="material-icons icon-book">book</i>
-                </div>
-                <div class="item-details-quiz">
-                    <span class="item-title-quiz">types : Contes</span>
-                    <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
-                </div>
-                <div class="quiz-meta-quiz">
-                    <span class="item-date-quiz">10/10/2025</span>
-                    <span class="quiz-questions-quiz">7 questions</span>
-                </div>
-            </div>
-            
-            <div class="quiz-item-card">
-                <div class="item-icon-container">
-                    <i class="material-icons icon-book">book</i>
-                </div>
-                <div class="item-details-quiz">
-                    <span class="item-title-quiz">types : Contes</span>
-                    <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
-                </div>
-                <div class="quiz-meta-quiz">
-                    <span class="item-date-quiz">10/10/2025</span>
-                    <span class="quiz-questions-quiz">7 questions</span>
-                </div>
-            </div>
+            <!-- Répétez les autres quiz-item-card ici... -->
+             <div class="quiz-item-card">
+                 <div class="item-icon-container">
+                     <i class="material-icons icon-book">book</i>
+                 </div>
+                 <div class="item-details-quiz">
+                     <span class="item-title-quiz">types : Contes</span>
+                     <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
+                 </div>
+                 <div class="quiz-meta-quiz">
+                     <span class="item-date-quiz">10/10/2025</span>
+                     <span class="quiz-questions-quiz">7 questions</span>
+                 </div>
+             </div>
+             
+             <div class="quiz-item-card">
+                 <div class="item-icon-container">
+                     <i class="material-icons icon-book">book</i>
+                 </div>
+                 <div class="item-details-quiz">
+                     <span class="item-title-quiz">types : Contes</span>
+                     <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
+                 </div>
+                 <div class="quiz-meta-quiz">
+                     <span class="item-date-quiz">10/10/2025</span>
+                     <span class="quiz-questions-quiz">7 questions</span>
+                 </div>
+             </div>
+             
+             <div class="quiz-item-card">
+                 <div class="item-icon-container">
+                     <i class="material-icons icon-book">book</i>
+                 </div>
+                 <div class="item-details-quiz">
+                     <span class="item-title-quiz">types : Contes</span>
+                     <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
+                 </div>
+                 <div class="quiz-meta-quiz">
+                     <span class="item-date-quiz">10/10/2025</span>
+                     <span class="quiz-questions-quiz">7 questions</span>
+                 </div>
+             </div>
+             
+             <div class="quiz-item-card">
+                 <div class="item-icon-container">
+                     <i class="material-icons icon-book">book</i>
+                 </div>
+                 <div class="item-details-quiz">
+                     <span class="item-title-quiz">types : Contes</span>
+                     <span class="item-subtitle-quiz">Quiz sur le conte Lion</span>
+                 </div>
+                 <div class="quiz-meta-quiz">
+                     <span class="item-date-quiz">10/10/2025</span>
+                     <span class="quiz-questions-quiz">7 questions</span>
+                 </div>
+             </div>
             
         </div>
         

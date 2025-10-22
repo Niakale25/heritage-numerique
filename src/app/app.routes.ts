@@ -10,6 +10,8 @@ import { ListQuiz } from './pages/list-quiz/list-quiz';
 import { IndexQuiz } from './pages/index-quiz/index-quiz';
 import { VraiFauxQuiz } from './pages/vrai-faux-quiz/vrai-faux-quiz';
 import { AjoutQuiz } from './pages/ajout-quiz/ajout-quiz';
+import { Conte } from './pages/conte/conte';
+import { DetailConte } from './pages/detail-conte/detail-conte';
 
 export const routes: Routes = [
     {path:'',component:Accueil,children:[
@@ -22,12 +24,15 @@ export const routes: Routes = [
             {path:'',component:ListQuiz},
             {path:'list',component:ListQuiz},
             {path:'new',component:AjoutQuiz},
-            {path:'vraiFaux',component:VraiFauxQuiz},
-            
+            {path:'new/qcm',component:AjoutQuiz},
+            {path: 'new/vraiFaux', component: VraiFauxQuiz },
+        
         ]},
-        // {path:'ajouterQuiz',component:AjoutQuiz},
         {path:'accueil',component:Dashboard},
-        {path:'ajouterContenu',component:AjoutContenu}
+        {path:'ajouterContenu',component:AjoutContenu},
+        {path:'conte',component:Conte},
+        {path:'detailConte',component:DetailConte }
+
     ]},
 
         {path:'login',component:Login }

@@ -1,0 +1,217 @@
+/* ---------------------------------------------------- */
+/* Conteneurs et En-tête (Styles conservés et confirmés) */
+/* ---------------------------------------------------- */
+
+.main-content-contes {
+    flex-grow: 1;
+    padding: 24px 30px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.header-contes {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.header-content-container {
+    width: 100%;
+    max-width: 1000px; 
+    height: 83px; 
+    
+    background: rgba(244, 244, 244, 0.81);
+    border-radius: 20px;
+    
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 25px; 
+}
+
+.search-bar {
+    width: 375px; 
+    height: 44px;
+    display: flex;
+    align-items: center;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 0 15px;
+}
+
+.search-bar i {
+    font-size: 21px;
+    color: rgba(0, 0, 0, 0.5); 
+    margin-right: 10px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.admin-profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.admin-profile-section i.profile-icon {
+    font-size: 24px;
+    color: #333; 
+    margin-right: 10px;
+}
+
+.admin-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #967B56;
+    white-space: nowrap; 
+}
+
+.page-title-contes {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.contes-list-card {
+    width: 100%;
+    max-width: 1020px; 
+    
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 20px 25px; 
+}
+
+.card-header-contes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title-contes {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+}
+
+.filter-button-contes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filter-button-contes i {
+    font-size: 18px;
+    color: #333;
+}
+
+.filter-button-contes .arrow-down {
+    margin-left: 5px;
+}
+
+/* ---------------------------------------------------- */
+/* ÉLÉMENTS DE LA LISTE DE CONTES (Adaptation pour le clic Angular) */
+/* ---------------------------------------------------- */
+
+.contes-list {
+    display: flex;
+    flex-direction: column;
+    /* Suppression du gap pour que la bordure de séparation soit contiguë */
+    gap: 0; 
+}
+
+.conte-item-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 10px;
+    border-bottom: 1px solid #EEEEEE;
+    
+    /* Ajout du curseur pour indiquer l'interactivité */
+    cursor: pointer; 
+    /* Ajout d'une transition pour l'effet de survol */
+    transition: background-color 0.15s ease;
+}
+
+/* Effet de survol visuel */
+.conte-item-card:hover {
+    background-color: #f7f7f7; 
+}
+
+.conte-details-left {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.conte-thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.conte-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.conte-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title-conte {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #000000;
+}
+
+.item-subtitle-conte {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #000000;
+}
+
+.item-date-conte {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.conte-item-card:last-child {
+    border-bottom: none;
+}

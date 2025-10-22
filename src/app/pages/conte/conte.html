@@ -1,0 +1,77 @@
+<main class="main-content-contes">
+    
+    <header class="header-contes">
+        <div class="header-content-container">
+            
+            <div class="search-bar">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Recherche">
+            </div>
+            
+            <div class="admin-profile-section">
+                <i class="material-icons profile-icon">person</i>
+                <span class="admin-text">Admin</span>
+            </div>
+            
+        </div>
+    </header>
+
+    <h1 class="page-title-contes">Les Contes Malien</h1>
+    
+    <div class="contes-list-card">
+        
+        <div class="card-header-contes">
+            <h2 class="section-title-contes">Contes</h2>
+            <button class="filter-button-contes">
+                <i class="material-icons">filter_list</i>
+                Filtrer par region
+                <i class="material-icons arrow-down">keyboard_arrow_down</i>
+            </button>
+        </div>
+
+        <div class="contes-list">
+            
+            <div class="conte-item-card" [routerLink]="['/detailConte']">
+                <div class="conte-details-left">
+                    <div class="conte-thumbnail">
+                        <img src="african-elder-storytelling.jpg" alt="Conte en image" >
+                    </div>
+                    <div class="conte-info">
+                        <span class="item-title-conte">L'histoire du lion et du chasseur</span>
+                        <span class="item-subtitle-conte">Oumar Diakité</span>
+                    </div>
+                </div>
+                <span class="item-date-conte">10/10/2025</span>
+            </div>
+            
+            <div class="conte-item-card" [routerLink]="['/detailConte']">
+                <div class="conte-details-left">
+                    <div class="conte-thumbnail">
+                         <img src="african-elder-storytelling.jpg" alt="Conte en image">
+                    </div>
+                    <div class="conte-info">
+                        <span class="item-title-conte">L'histoire du lion et du chasseur</span>
+                        <span class="item-subtitle-conte">Oumar Diakité</span>
+                    </div>
+                </div>
+                <span class="item-date-conte">10/10/2025</span>
+            </div>
+
+            <div class="conte-item-card" [routerLink]="['/detailConte']">
+                <div class="conte-details-left">
+                    <div class="conte-thumbnail">
+                         <img src="african-elder-storytelling.jpg" alt="Conte en image">
+                    </div>
+                    <div class="conte-info">
+                        <span class="item-title-conte">L'histoire du lion et du chasseur</span>
+                        <span class="item-subtitle-conte">Oumar Diakité</span>
+                    </div>
+                </div>
+                <span class="item-date-conte">10/10/2025</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</main>
