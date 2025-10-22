@@ -12,6 +12,8 @@ import { VraiFauxQuiz } from './pages/vrai-faux-quiz/vrai-faux-quiz';
 import { AjoutQuiz } from './pages/ajout-quiz/ajout-quiz';
 import { Conte } from './pages/conte/conte';
 import { DetailConte } from './pages/detail-conte/detail-conte';
+import { ContenusArtisanal } from './pages/contenus-artisanal/contenus-artisanal';
+import { Profil } from './pages/profil/profil';
 
 export const routes: Routes = [
     {path:'',component:Accueil,children:[
@@ -31,7 +33,9 @@ export const routes: Routes = [
         {path:'accueil',component:Dashboard},
         {path:'ajouterContenu',component:AjoutContenu},
         {path:'conte',component:Conte},
-        {path:'detailConte',component:DetailConte }
+        {path:'detailConte',component:DetailConte },
+        {path:'photo',component:ContenusArtisanal },
+        {path:'parametre',component:Profil }
 
     ]},
 

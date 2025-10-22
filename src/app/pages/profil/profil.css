@@ -1,0 +1,282 @@
+/* --- Global Reset & Page Layout --- */
+:host {
+    display: block;
+    width: 100%;
+    /* 1. Supprimer le padding-left qui causait le défilement horizontal */
+    /* padding-left: 360px; */ 
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    /* 2. Assurer que le conteneur principal est centré */
+    overflow-x: hidden; /* Empêcher le défilement horizontal dû aux positions absolues */
+}
+
+.page-wrapper {
+    /* Largeur totale des cartes + espacement */
+    width: 900px; /* 207px (carte gauche) + 47px (gap) + 606px (carte droite) = 860px. Utiliser une valeur fixe pour contenir les éléments absolus. */
+    max-width: 100%;
+    /* 2. Centrage du contenu */
+    margin: 0 auto; 
+    position: relative;
+    /* Nous allons utiliser cette div comme référence pour le positionnement absolu */
+    padding-bottom: 50px; /* Espace pour les boutons en bas */
+}
+
+/* --- En-tête --- */
+.profile-header {
+    /* Ajustements pour centrer le titre principal */
+    display: flex;
+    align-items: center;
+    position: relative; /* Changé de absolute à relative */
+    top: 0;
+    justify-content: center; /* Centrer le contenu horizontalement */
+    margin-top: 65px; /* Ajouter la marge pour l'espacement initial */
+    margin-bottom: 40px; /* Espacement avec le contenu des cartes */
+}
+
+.back-icon {
+    /* Suppression des styles de l'icône de retour */
+    display: none; 
+}
+
+.header-title {
+    /* Profil Administrateur */
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    color: #000000;
+    margin: 0;
+}
+
+/* --- Conteneurs principaux des cartes --- */
+.profile-content-container {
+    /* Suppression des positions absolues pour suivre le flux normal après l'en-tête centré */
+    display: flex;
+    gap: 47px; 
+    position: relative; /* Changé de absolute à relative */
+    top: 0;
+    left: 0; 
+    width: 860px; /* Définir la largeur pour le flexbox */
+    margin: 0 auto; /* Centrer le conteneur de cartes (860px) à l'intérieur du page-wrapper (900px) */
+}
+
+/* --- Carte Utilisateur (Gauche - Rectangle 186) --- */
+.user-card {
+    /* Rectangle 186 */
+    width: 207px;
+    height: 642px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 28px;
+    box-sizing: border-box;
+    /* Rendre ce conteneur non-absolu si possible, mais nous le gardons pour l'instant avec le flexbox parent */
+}
+
+.user-icon-bg {
+    /* Simule l'icône dans un cercle (qlementine-icons:user-16) */
+    width: 70px;
+    height: 70px;
+    background: #967B56;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.user-icon {
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.user-name {
+    /* Niakalé Diakité */
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+}
+
+.user-role {
+    /* Administrateur */
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 36px;
+    color: #967B56;
+    margin: 0 0 30px 0;
+}
+
+.separator {
+    /* Line 27 */
+    width: 175px;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 1);
+    margin-bottom: 25px;
+}
+
+.member-since {
+    /* Membre depuis le 16/10/2025 */
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 36px;
+    color: #000000;
+    margin: 0;
+}
+
+/* --- Carte de Détails (Droite - Rectangle 199) --- */
+.details-card {
+    /* Rectangle 199 */
+    width: 606px;
+    height: 650px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 34px 40px; /* Remplace les positions absolues */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Sections (Information Personnelle et Sécurité) --- */
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-icon, .security-icon {
+    font-size: 24px;
+    color: #967B56;
+    margin-right: 10px;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #000000;
+    margin: 0;
+}
+
+.security-title {
+    font-size: 24px; /* Plus grand selon la maquette */
+}
+
+.security-section-divider {
+    /* Line 28/29 - Séparateur entre sections */
+    width: 543px;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    margin: 25px 0;
+}
+
+
+/* --- Formulaire --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    /* Rectangle 200, 201, 202, 203, 204, 205, 206 */
+    width: 100%;
+    height: 45px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Champ Mot de passe (large) */
+.wide-group {
+    grid-column: span 2;
+}
+
+.password-input-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0; /* Réinitialiser padding de .input-field */
+}
+
+.password-input-wrapper input {
+    flex-grow: 1;
+    height: 45px;
+    padding: 0 15px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    outline: none;
+}
+
+.eye-icon {
+    /* mdi:eye-outline */
+    color: #000000;
+    font-size: 24px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+/* --- Boutons d'action --- */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end; /* Alignés à droite */
+    margin-top: auto; /* Pousser les boutons vers le bas */
+    gap: 20px;
+}
+
+.btn {
+    width: 173px;
+    height: 37px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 37px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+}
+
+.btn-cancel {
+    /* Rectangle 190 */
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    color: #000000;
+}
+
+.btn-save {
+    /* Rectangle 189 */
+    background: #AA7311;
+    color: #FFFFFF;
+}
+
+.btn-save:hover {
+    background: #967B56;
+}
+
+.btn-cancel:hover {
+    background: #f0f0f0;
+}

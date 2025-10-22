@@ -1,0 +1,118 @@
+<!-- J'ai inclus une navigation simplifiée à gauche pour respecter l'alignement de la maquette -->
+<div class="page-wrapper">
+  
+    <!-- En-tête de la page -->
+    <header class="profile-header">
+        <h1 class="header-title">Profil Administrateur</h1>
+    </header>
+
+    <div class="profile-content-container">
+        <div class="user-card">
+            <div class="user-icon-bg">
+                <i class="material-icons user-icon">person</i>
+            </div>
+            
+            <h2 class="user-name">{{ profile.firstName }} {{ profile.lastName }}</h2>
+            <p class="user-role">{{ profile.role }}</p>
+            
+            <div class="separator"></div>
+
+            <p class="member-since">Membre depuis le {{ profile.memberSince }}</p>
+        </div>
+
+        <!-- Carte de Détails (Rectangle 199) - Colonne de droite -->
+        <div class="details-card">
+            
+            <!-- Section 1: Information Personnelle -->
+            <div class="section-container">
+                <div class="section-header">
+                    <i class="material-icons info-icon">person</i>
+                    <h3 class="section-title">Information Personnelle</h3>
+                </div>
+                
+                <form class="form-grid">
+                    <!-- Nom -->
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" [(ngModel)]="profile.lastName" name="lastName" [disabled]="!isEditing" class="input-field" placeholder="Nom">
+                    </div>
+                    <!-- Prénom -->
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input type="text" [(ngModel)]="profile.firstName" name="firstName" [disabled]="!isEditing" class="input-field" placeholder="Prénom">
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" [(ngModel)]="profile.email" name="email" [disabled]="!isEditing" class="input-field" placeholder="Email">
+                    </div>
+                    <!-- Téléphone -->
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" [(ngModel)]="profile.phone" name="phone" [disabled]="!isEditing" class="input-field" placeholder="Téléphone">
+                    </div>
+                </form>
+            </div>
+
+            <div class="security-section-divider"></div>
+            
+            <!-- Section 2: Sécurité -->
+            <div class="section-container">
+                <div class="section-header">
+                    <i class="material-icons security-icon">shield</i>
+                    <h3 class="section-title security-title">Sécurité</h3>
+                </div>
+                
+                <form class="security-form" (submit)="saveProfile()">
+                    <!-- Mot de passe actuel -->
+                    <div class="form-group wide-group">
+                        <label>Mot de passe</label>
+                        <div class="password-input-wrapper input-field">
+                            <input 
+                                [type]="showPassword ? 'text' : 'password'" 
+                                [(ngModel)]="profile.currentPassword" 
+                                name="currentPassword" 
+                                [disabled]="!isEditing"
+                                placeholder="Entrer mot de passe actuel"
+                            >
+                            <!-- mdi:eye-outline -->
+                            <i class="material-icons eye-icon" (click)="showPassword = !showPassword">
+                                {{ showPassword ? 'visibility_off' : 'visibility' }}
+                            </i>
+                        </div>
+                    </div>
+
+                    <!-- Nouveaux mots de passe -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Nouveau mot de passe</label>
+                            <input type="password" [(ngModel)]="profile.newPassword" name="newPassword" [disabled]="!isEditing" class="input-field" placeholder="Nouveau mot de passe">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmer mot de passe</label>
+                            <input type="password" [(ngModel)]="profile.confirmPassword" name="confirmPassword" [disabled]="!isEditing" class="input-field" placeholder="Confirmer mot de passe">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Boutons d'action -->
+            <div class="action-buttons">
+                <!-- Bouton Annuler (Rectangle 190) -->
+                @if (isEditing) {
+                    <button class="btn btn-cancel" (click)="toggleEditMode(false)">Annuler</button>
+                }
+                
+                <!-- Bouton Enregistrer (Rectangle 189) -->
+                @if (isEditing) {
+                    <button class="btn btn-save" (click)="saveProfile()">Enregistrer</button>
+                }
+
+                <!-- Bouton Modifier (Visible en mode lecture) -->
+                @if (!isEditing) {
+                    <button class="btn btn-save" (click)="toggleEditMode(true)">Modifier le profil</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
