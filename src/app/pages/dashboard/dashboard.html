@@ -1,4 +1,5 @@
 <div class="dashboard-container">
+  
     <header class="dashboard-header-new">
         <div class="header-content-container">
             
@@ -9,154 +10,131 @@
             
             <div class="admin-profile-section">
                 <i class="material-icons profile-icon">person</i>
-                <span class="admin-text">Admin</span>
+                                <span class="admin-text">{{ adminName }}</span> 
             </div>
             
         </div>
         
         <h1>Dashboard</h1> 
     </header>
-    <section class="metric-cards">
-        <div class="card">
+
+        <div *ngIf="isLoading" class="loading-indicator">
+        <p>Chargement des données du tableau de bord...</p>
+    </div>
+    <div *ngIf="errorMessage" class="error-indicator">
+        <p>Erreur: {{ errorMessage }}</p>
+        <button (click)="loadDashboardData()">Réessayer</button>
+    </div>
+
+        <section class="metric-cards" *ngIf="dashboardData">
+        
+                <div class="card">
             <div class="card-icon icon-familles">
                 <i class="material-icons">people_outline</i>
             </div>
             <div class="card-content">
-                <span class="count">30</span>
+                <span class="count">{{ dashboardData.nombreFamilles | number }}</span>
                 <span class="label">Familles</span>
             </div>
         </div>
 
-        <div class="card">
+                <div class="card">
             <div class="card-icon icon-utilisateurs">
                 <i class="material-icons">group</i>
             </div>
             <div class="card-content">
-                <span class="count">30</span>
+                <span class="count">{{ dashboardData.nombreUtilisateurs | number }}</span>
                 <span class="label">Utilisateurs</span>
             </div>
         </div>
 
-        <div class="card">
+                <div class="card">
             <div class="card-icon icon-contes">
                 <i class="material-icons">book</i>
             </div>
             <div class="card-content">
-                <span class="count">30</span>
+                <span class="count">{{ dashboardData.nombreContes | number }}</span>
                 <span class="label">Contes</span>
             </div>
         </div>
 
-        <div class="card">
+                <div class="card">
             <div class="card-icon icon-photos">
                 <i class="material-icons">photo_library</i>
             </div>
             <div class="card-content">
-                <span class="count">30</span>
-                <span class="label">Photos</span>
+                <span class="count">{{ dashboardData.nombreArtisanats | number }}</span>
+                <span class="label">Artisanats</span>
             </div>
         </div>
 
-        <div class="card">
+                <div class="card">
             <div class="card-icon icon-chant">
-                <i class="material-icons">music_note</i>
-            </div>
+                <i class="material-icons">quiz</i>             </div>
             <div class="card-content">
-                <span class="count">30</span>
-                <span class="label">Chant</span>
+                <span class="count">{{ dashboardData.nombreDevinettes | number }}</span>
+                <span class="label">Devinettes</span>
             </div>
         </div>
 
-        <div class="card">
+                <div class="card">
             <div class="card-icon icon-proverbes">
                 <i class="material-icons">format_quote</i>
             </div>
             <div class="card-content">
-                <span class="count">30</span>
+                <span class="count">{{ dashboardData.nombreProverbes | number }}</span>
                 <span class="label">Proverbes</span>
             </div>
         </div>
+        
     </section>
 
-    <section class="recent-activities">
-    <div class="recent-column">
-        <h2>Récents Récits</h2>
+        <section class="recent-activities" *ngIf="dashboardData">
         
-        <div class="story-card">
-            <div class="activity-item">
-                <div class="item-icon item-icon-book">
-                    <i class="material-icons">book</i>
+                <div class="recent-column">
+            <h2>Récents Récits (Contenus)</h2>
+            
+                        <div class="story-card" *ngFor="let contenu of dashboardData.contenusRecents.slice(0, 5)">
+                <div class="activity-item">
+                                        <div class="item-icon" [ngClass]="getIconClass(contenu.typeContenu)">
+                        <i class="material-icons">{{ getMaterialIconName(contenu.typeContenu) }}</i>
+                    </div>
+                    <div class="item-details">
+                        <span class="item-title">{{ contenu.titre }}</span>
+                        <span class="item-subtitle">{{ contenu.prenomCreateur }} {{ contenu.nomCreateur }} ({{ contenu.typeContenu }})</span>
+                    </div>
+                                        <span class="item-date">{{ contenu.dateCreation | date:'dd/MM/yyyy' }}</span> 
                 </div>
-                <div class="item-details">
-                    <span class="item-title">L'histoire du lion et du chasseur</span>
-                    <span class="item-subtitle">Niakalé Diakité</span>
-                </div>
-                <span class="item-date">10/10/2025</span>
             </div>
-        </div>
-        
-        <div class="story-card">
-            <div class="activity-item">
-                <div class="item-icon item-icon-book">
-                    <i class="material-icons">book</i>
-                </div>
-                <div class="item-details">
-                    <span class="item-title">L'histoire du lion et du chasseur</span>
-                    <span class="item-subtitle">Niakalé Diakité</span>
-                </div>
-                <span class="item-date">10/10/2025</span>
-            </div>
-        </div>
-        
-        <div class="story-card">
-            <div class="activity-item">
-                <div class="item-icon item-icon-book">
-                    <i class="material-icons">book</i>
-                </div>
-                <div class="item-details">
-                    <span class="item-title">L'histoire du lion et du chasseur</span>
-                    <span class="item-subtitle">Niakalé Diakité</span>
-                </div>
-                <span class="item-date">10/10/2025</span>
-            </div>
-        </div>
-    </div>
 
-    <div class="recent-column">
-        <h2>Récents Familles</h2>
-        
-        <div class="family-list-container">
-            <div class="activity-item family-item">
-                <div class="item-details">
-                    <span class="item-title">Famille Dolo</span>
-                    <span class="item-subtitle">Oumar Dolo</span>
-                </div>
-                <div class="family-meta">
-                    <span class="family-members">7 membres</span>
-                    <span class="item-date">10/10/2025</span>
-                </div>
-            </div>
-            <div class="activity-item family-item">
-                <div class="item-details">
-                    <span class="item-title">Famille Dolo</span>
-                    <span class="item-subtitle">Oumar Dolo</span>
-                </div>
-                <div class="family-meta">
-                    <span class="family-members">7 membres</span>
-                    <span class="item-date">10/10/2025</span>
-                </div>
-            </div>
-            <div class="activity-item family-item no-border">
-                <div class="item-details">
-                    <span class="item-title">Famille Dolo</span>
-                    <span class="item-subtitle">Oumar Dolo</span>
-                </div>
-                <div class="family-meta">
-                    <span class="family-members">7 membres</span>
-                    <span class="item-date">10/10/2025</span>
-                </div>
+            <div *ngIf="!dashboardData.contenusRecents || dashboardData.contenusRecents.length === 0">
+                <p class="text-muted">Aucun contenu récent à afficher.</p>
             </div>
         </div>
-    </div>
-</section>
+
+                <div class="recent-column">
+            <h2>Récents Familles</h2>
+            
+            <div class="family-list-container">
+                <div class="activity-item family-item" 
+                     [ngClass]="{'no-border': last}"
+                     *ngFor="let famille of dashboardData.famillesRecentes.slice(0, 5); let last = last">
+                    
+                    <div class="item-details">
+                        <span class="item-title">Famille {{ famille.nom }}</span>
+                        <span class="item-subtitle">{{ famille.prenomAdmin }} {{ famille.nomAdmin }}</span>
+                    </div>
+                    <div class="family-meta">
+                        <span class="family-members">{{ famille.nombreMembres || 0 }} membres</span>
+                                                <span class="item-date">{{ famille.dateCreation | date:'dd/MM/yyyy' }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!dashboardData.famillesRecentes || dashboardData.famillesRecentes.length === 0">
+                <p class="text-muted">Aucune famille récente à afficher.</p>
+            </div>
+
+        </div>
+    </section>
 </div>

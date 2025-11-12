@@ -1,0 +1,27 @@
+<div class="page-container">
+  <!-- Image de fond -->
+  <div
+    class="background"
+    [style.background-image]="'url(' + proverbData().backgroundImageUrl + ')'">
+  </div>
+
+  <!-- Overlay principal -->
+  <div class="overlay-1"></div>
+
+  <!-- Carte principale -->
+  <div class="overlay-2">
+    <p class="proverb-text">
+      "{{ proverbData().text }}"
+    </p>
+
+    <!-- Lignes décoratives -->
+    <div class="line-left"></div>
+    <span class="origin">{{ proverbData().origin }}</span>
+    <div class="line-right"></div>
+
+    <h2 class="signification-title">Signification</h2>
+    <p class="signification-text">
+      {{ proverbData().signification }}
+    </p>
+  </div>
+</div>

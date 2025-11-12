@@ -1,77 +1,106 @@
 <main class="main-content-contes">
-    
-    <header class="header-contes">
-        <div class="header-content-container">
-            
-            <div class="search-bar">
-                <i class="material-icons">search</i>
-                <input type="text" placeholder="Recherche">
-            </div>
-            
-            <div class="admin-profile-section">
-                <i class="material-icons profile-icon">person</i>
-                <span class="admin-text">Admin</span>
-            </div>
-            
-        </div>
-    </header>
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <div class="top-banner-inner">
+      <div class="search-bar">
+        <i class="material-icons">search</i>
+        <input
+          type="text"
+          placeholder="Recherche par titre, auteur, famille..."
+          (input)="updateSearchTerm($event)"
+          [value]="searchTerm()"
+        />
+      </div>
 
-    <h1 class="page-title-contes">Les Contes Malien</h1>
-    
-    <div class="contes-list-card">
-        
-        <div class="card-header-contes">
-            <h2 class="section-title-contes">Contes</h2>
-            <button class="filter-button-contes">
-                <i class="material-icons">filter_list</i>
-                Filtrer par region
-                <i class="material-icons arrow-down">keyboard_arrow_down</i>
-            </button>
-        </div>
-
-        <div class="contes-list">
-            
-            <div class="conte-item-card" [routerLink]="['/detailConte']">
-                <div class="conte-details-left">
-                    <div class="conte-thumbnail">
-                        <img src="african-elder-storytelling.jpg" alt="Conte en image" >
-                    </div>
-                    <div class="conte-info">
-                        <span class="item-title-conte">L'histoire du lion et du chasseur</span>
-                        <span class="item-subtitle-conte">Oumar Diakité</span>
-                    </div>
-                </div>
-                <span class="item-date-conte">10/10/2025</span>
-            </div>
-            
-            <div class="conte-item-card" [routerLink]="['/detailConte']">
-                <div class="conte-details-left">
-                    <div class="conte-thumbnail">
-                         <img src="african-elder-storytelling.jpg" alt="Conte en image">
-                    </div>
-                    <div class="conte-info">
-                        <span class="item-title-conte">L'histoire du lion et du chasseur</span>
-                        <span class="item-subtitle-conte">Oumar Diakité</span>
-                    </div>
-                </div>
-                <span class="item-date-conte">10/10/2025</span>
-            </div>
-
-            <div class="conte-item-card" [routerLink]="['/detailConte']">
-                <div class="conte-details-left">
-                    <div class="conte-thumbnail">
-                         <img src="african-elder-storytelling.jpg" alt="Conte en image">
-                    </div>
-                    <div class="conte-info">
-                        <span class="item-title-conte">L'histoire du lion et du chasseur</span>
-                        <span class="item-subtitle-conte">Oumar Diakité</span>
-                    </div>
-                </div>
-                <span class="item-date-conte">10/10/2025</span>
-            </div>
-            
-        </div>
-        
+      <div class="admin-profile-section">
+        <i class="material-icons profile-icon">person</i>
+        <span class="admin-text">Admin</span>
+      </div>
     </div>
-    
+  </div>
+
+  <!-- PAGE TITLE -->
+  <h1 class="page-title-contes">Les Contes Malien</h1>
+
+  <!-- MAIN CARD -->
+  <div class="contes-list-card">
+    <div class="card-header-contes">
+      <h2 class="section-title-contes">Contes ({{ filteredContes().length }})</h2>
+
+      <div class="filter-container">
+        <button class="filter-button-contes"
+                (click)="toggleFilterMenu()"
+                [class.active-filter]="!!selectedRegion()">
+          <i class="material-icons">filter_list</i>
+          Filtrer par region
+          <i class="material-icons arrow-down">
+            {{ isFilterMenuOpen() ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+          </i>
+        </button>
+
+        <div *ngIf="isFilterMenuOpen()" class="filter-dropdown-menu">
+          <div class="filter-option" (click)="selectRegion(null)" [class.selected]="!selectedRegion()">
+            Toutes les Régions <span class="region-count">({{ contes().length }})</span>
+          </div>
+
+          <div class="filter-separator"></div>
+
+          <div *ngFor="let region of uniqueRegions()" class="filter-option"
+               (click)="selectRegion(region)"
+               [class.selected]="selectedRegion() === region">
+            {{ region }} <span class="region-count">({{ countContesByRegion(region) }})</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAT DE CHARGEMENT / ERREUR -->
+    <div *ngIf="isLoading()" class="loading-message">
+      <div class="spinner"></div> Chargement des contes...
+    </div>
+
+    <div *ngIf="error()" class="error-message">
+      <i class="material-icons">error</i> {{ error() }}
+    </div>
+
+    <!-- LISTE DES CONTES -->
+    <div *ngIf="!isLoading() && !error()" class="contes-list">
+      <div *ngFor="let conte of filteredContes()" class="conte-item-card">
+        <!-- ZONE GAUCHE -->
+        <div class="conte-link-area" (click)="viewConteDetails(conte.id)">
+          <div class="conte-thumbnail">
+            <img [src]="getThumbnailUrl(conte.urlPhoto || conte.thumbnailUrl)" alt="Miniature du Conte" />
+          </div>
+
+          <div class="conte-info">
+            <span class="item-title-conte">{{ conte.titre }}</span>
+
+            <!--  Affichage : Prénom Nom Auteur • Nom Famille -->
+            <span class="item-subtitle-conte">
+              {{ conte.nomCreateur }}
+               {{ conte.prenomCreateur }}
+            <span class="dot">•</span>
+             Famille {{ conte.nomFamille }}
+            </span>
+          </div>
+        </div>
+
+        <!-- PARTIE DROITE -->
+        <div class="conte-right">
+          <span class="item-date-conte">{{ formatCreationDate(conte.dateCreation) }}</span>
+
+          <div class="conte-actions">
+            <i class="material-icons action-icon edit-icon"
+               (click)="modifierConte(conte); $event.stopPropagation()">edit</i>
+            <i class="material-icons action-icon delete-icon"
+               (click)="supprimerConteLocally(conte); $event.stopPropagation()">delete</i>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="filteredContes().length === 0" class="loading-message">
+        Aucun conte trouvé.
+      </div>
+    </div>
+  </div>
 </main>

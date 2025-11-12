@@ -1,5 +1,4 @@
 <div class="page-container-with-sidebar">
-    
     <main class="main-content-familles">
         
         <header class="header-familles">
@@ -7,86 +6,65 @@
                 
                 <div class="search-bar">
                     <i class="material-icons">search</i>
-                    <input type="text" placeholder="Recherche">
+                    <input 
+                        type="text" 
+                        placeholder="Rechercher par nom ou admin..." 
+                        [(ngModel)]="searchTerm" 
+                        (ngModelChange)="applyFilters()"
+                    >
                 </div>
                 
                 <div class="admin-profile-section">
                     <i class="material-icons profile-icon">person</i>
-                    <span class="admin-text">Admin</span>
+                    <span class="admin-text">{{ adminName }}</span>
                 </div>
                 
             </div>
         </header>
 
-        <h1 class="page-title-familles">Familles</h1>
+        <h1 class="page-title-familles">Gestion des Familles</h1>
         
-        <div class="familles-list-card">
+        <div *ngIf="isLoading" class="loading-indicator">
+            <p>Chargement des familles...</p>
+        </div>
+        <div *ngIf="errorMessage" class="error-indicator">
+            <p>Erreur: {{ errorMessage }}</p>
+            <button (click)="loadAllFamilles()">Réessayer</button>
+        </div>
+
+        <div class="familles-list-card" *ngIf="!isLoading && !errorMessage">
             
             <div class="card-header-familles">
-                <button class="filter-button">
-                    <i class="material-icons">filter_list</i>
-                    Filtrer par période
-                    <i class="material-icons arrow-down">keyboard_arrow_down</i>
-                </button>
+                <select class="filter-select" [(ngModel)]="filterPeriod" (ngModelChange)="applyFilters()">
+                    <option value="all">Toutes les Périodes</option>
+                    <option value="last_week">Dernière semaine</option>
+                    <option value="last_month">Dernier mois</option>
+                </select>
             </div>
 
             <div class="familles-list">
                 
-                <div class="family-item-card">
+                <div class="family-item-card" *ngFor="let famille of famillesFiltrees">
                     <div class="item-details-famille">
-                        <span class="item-title-famille">Famille Dolo</span>
-                        <span class="item-subtitle-famille">Oumar Dolo</span>
+                        <span class="item-title-famille">Famille {{ famille.nom }}</span>
+                        <span class="item-subtitle-famille">Admin: {{ famille.prenomAdmin }} {{ famille.nomAdmin }} ({{ famille.emailAdmin }})</span>
                     </div>
                     <div class="family-meta-famille">
-                        <span class="item-date-famille">10/10/2025</span>
-                        <span class="family-members-famille">7 membres</span>
+                        <span class="item-date-famille">Créée le: {{ famille.dateCreation | date:'dd/MM/yyyy' }}</span>
+                        <span class="family-members-famille">{{ famille.nombreMembres }} membres</span>
+                        <span 
+                            class="family-status" 
+                            [class.active]="famille.isActive ?? false" 
+                            [class.inactive]="!(famille.isActive ?? false)"
+                        >
+                            Statut: {{ getStatusLabel(famille.isActive) }}
+                        </span>
                     </div>
                 </div>
                 
-                <div class="family-item-card">
-                    <div class="item-details-famille">
-                        <span class="item-title-famille">Famille Dolo</span>
-                        <span class="item-subtitle-famille">Oumar Dolo</span>
-                    </div>
-                    <div class="family-meta-famille">
-                        <span class="item-date-famille">10/10/2025</span>
-                        <span class="family-members-famille">7 membres</span>
-                    </div>
+                <div *ngIf="famillesFiltrees.length === 0" class="text-muted-famille">
+                    <p>Aucune famille ne correspond aux critères de recherche ou de filtre.</p>
                 </div>
-                
-                <div class="family-item-card">
-                    <div class="item-details-famille">
-                        <span class="item-title-famille">Famille Dolo</span>
-                        <span class="item-subtitle-famille">Oumar Dolo</span>
-                    </div>
-                    <div class="family-meta-famille">
-                        <span class="item-date-famille">10/10/2025</span>
-                        <span class="family-members-famille">7 membres</span>
-                    </div>
-                </div>
-                
-                <div class="family-item-card">
-                    <div class="item-details-famille">
-                        <span class="item-title-famille">Famille Dolo</span>
-                        <span class="item-subtitle-famille">Oumar Dolo</span>
-                    </div>
-                    <div class="family-meta-famille">
-                        <span class="item-date-famille">10/10/2025</span>
-                        <span class="family-members-famille">7 membres</span>
-                    </div>
-                </div>
-                
-                <div class="family-item-card">
-                    <div class="item-details-famille">
-                        <span class="item-title-famille">Famille Dolo</span>
-                        <span class="item-subtitle-famille">Oumar Dolo</span>
-                    </div>
-                    <div class="family-meta-famille">
-                        <span class="item-date-famille">10/10/2025</span>
-                        <span class="family-members-famille">7 membres</span>
-                    </div>
-                </div>
-                
             </div>
             
         </div>

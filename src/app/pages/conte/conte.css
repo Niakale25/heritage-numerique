@@ -1,217 +1,258 @@
-/* ---------------------------------------------------- */
-/* Conteneurs et En-tête (Styles conservés et confirmés) */
-/* ---------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap');
 
-.main-content-contes {
-    flex-grow: 1;
-    padding: 24px 30px; 
-    display: flex;
-    flex-direction: column;
+/* ===== BASE ===== */
+body, :host, .main-content-contes {
+  margin: 0;
+  padding: 2px;
+  background: #FFFFFF;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  box-sizing: border-box;
 }
 
-.header-contes {
-    width: 100%;
-    margin-bottom: 30px;
+/* ===== BANNIÈRE SUPÉRIEURE ===== */
+.top-banner {
+  width: calc(100% - 120px);
+  max-width: 1200px;
+  margin: 24px auto 8px auto;
+  background: #F4F4F4;
+  border-radius: 20px;
+  height: 83px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  box-sizing: border-box;
 }
 
-.header-content-container {
-    width: 100%;
-    max-width: 1000px; 
-    height: 83px; 
-    
-    background: rgba(244, 244, 244, 0.81);
-    border-radius: 20px;
-    
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 0 25px; 
+.top-banner-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* BARRE DE RECHERCHE */
 .search-bar {
-    width: 375px; 
-    height: 44px;
-    display: flex;
-    align-items: center;
-    
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    padding: 0 15px;
+  width: 420px;
+  max-width: 60%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .search-bar i {
-    font-size: 21px;
-    color: rgba(0, 0, 0, 0.5); 
-    margin-right: 10px;
+  font-size: 20px;
+  color: #999;
 }
-
 .search-bar input {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 13px;
-    color: rgba(0, 0, 0, 0.5);
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  color: #222;
 }
 
+/* PROFIL ADMIN */
 .admin-profile-section {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-
-.admin-profile-section i.profile-icon {
-    font-size: 24px;
-    color: #333; 
-    margin-right: 10px;
+.profile-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(180deg,#fff,#f7f7f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #222;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
-
 .admin-text {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 36px;
-    color: #967B56;
-    white-space: nowrap; 
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #967B56;
 }
 
+/* ===== TITRE ===== */
 .page-title-contes {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 36px;
-    color: #000000;
-    margin-bottom: 20px;
+  max-width: 1200px;
+  margin: 18px auto 12px auto;
+  padding-left: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #000;
 }
 
+/* ===== LISTE DES CONTES ===== */
 .contes-list-card {
-    width: 100%;
-    max-width: 1020px; 
-    
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    padding: 20px 25px; 
+  width: calc(100% - 120px);
+  max-width: 1200px;
+  margin: 8px auto 48px auto;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.25);
+  padding: 18px 20px;
+  box-sizing: border-box;
 }
 
 .card-header-contes {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .section-title-contes {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000;
 }
 
+/* BOUTON FILTRE */
+.filter-container {
+  position: relative;
+}
 .filter-button-contes {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 10px;
-    
-    background: #FFFFFF;
-    border: 1px solid #E5E5E5;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  height: 32px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #E5E5E5;
+  font-size: 14px;
+  cursor: pointer;
 }
-
 .filter-button-contes i {
-    font-size: 18px;
-    color: #333;
+  font-size: 18px;
+  color: #666;
 }
 
-.filter-button-contes .arrow-down {
-    margin-left: 5px;
-}
-
-/* ---------------------------------------------------- */
-/* ÉLÉMENTS DE LA LISTE DE CONTES (Adaptation pour le clic Angular) */
-/* ---------------------------------------------------- */
-
+/* LIGNE DE CONTE */
 .contes-list {
-    display: flex;
-    flex-direction: column;
-    /* Suppression du gap pour que la bordure de séparation soit contiguë */
-    gap: 0; 
+  display: flex;
+  flex-direction: column;
 }
-
 .conte-item-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    padding: 10px;
-    border-bottom: 1px solid #EEEEEE;
-    
-    /* Ajout du curseur pour indiquer l'interactivité */
-    cursor: pointer; 
-    /* Ajout d'une transition pour l'effet de survol */
-    transition: background-color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+  border-bottom: 1px solid #E0E0E0;
+  background: transparent;
 }
-
-/* Effet de survol visuel */
 .conte-item-card:hover {
-    background-color: #f7f7f7; 
+  background: #fafafa;
 }
 
-.conte-details-left {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
+/* IMAGE */
+.conte-link-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1 1 auto;
+  cursor: pointer;
+  min-width: 0;
 }
-
 .conte-thumbnail {
-    width: 70px;
-    height: 70px;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-right: 15px;
-    flex-shrink: 0;
+  width: 103px;
+  height: 61px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #eee;
+  flex-shrink: 0;
 }
-
 .conte-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
+/* INFO TEXTE */
 .conte-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
-
 .item-title-conte {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.4;
-    color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .item-subtitle-conte {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 1.4;
-    color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #49521D;
+  margin-top: 4px;
 }
 
+.item-subtitle-conte .dot {
+  margin: 0 6px;
+  color: #8C8C8C;
+  font-weight: bold;
+}
+
+
+/* PARTIE DROITE */
+.conte-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
 .item-date-conte {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #000000;
-    flex-shrink: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #000;
+  white-space: nowrap;
 }
+.conte-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.action-icon {
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, transform 0.12s;
+}
+.action-icon:hover {
+  transform: scale(1.1);
+}
+.edit-icon { color: #2E7D32; }
+.delete-icon { color: #C62828; }
 
-.conte-item-card:last-child {
-    border-bottom: none;
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .top-banner { width: calc(100% - 40px); padding: 12px; height: auto; }
+  .top-banner-inner { flex-direction: column; gap: 8px; align-items: stretch; }
+  .search-bar { width: 100%; }
+  .page-title-contes { padding-left: 16px; font-size: 24px; }
+  .contes-list-card { width: calc(100% - 40px); padding: 14px; }
+}
+@media (max-width: 520px) {
+  .item-date-conte { display: none; }
+  .conte-actions { display: none; }
 }

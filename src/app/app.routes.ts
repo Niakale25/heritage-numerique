@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { Accueil } from './pages/accueil/accueil';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Login } from './pages/login/login';
@@ -8,37 +9,55 @@ import { Musique } from './pages/musique/musique';
 import { Utilisateur } from './pages/utilisateur/utilisateur';
 import { ListQuiz } from './pages/list-quiz/list-quiz';
 import { IndexQuiz } from './pages/index-quiz/index-quiz';
-import { VraiFauxQuiz } from './pages/vrai-faux-quiz/vrai-faux-quiz';
 import { AjoutQuiz } from './pages/ajout-quiz/ajout-quiz';
 import { Conte } from './pages/conte/conte';
-import { DetailConte } from './pages/detail-conte/detail-conte';
 import { ContenusArtisanal } from './pages/contenus-artisanal/contenus-artisanal';
+import { DetailConte } from './pages/detail-conte/detail-conte';
 import { Profil } from './pages/profil/profil';
+import { Proverbe } from './pages/proverbe/proverbe';
+import { Devinette } from './pages/devinette/devinette';
+import { ProverbDetailsComponent } from './pages/proverb-details-component/proverb-details-component';
+import { adminGuard } from './guards/admin-guard';
 
 export const routes: Routes = [
-    {path:'',component:Accueil,children:[
-        {path:'',component:Dashboard},
-        {path:'accueil',component:Dashboard},
-        {path:'famille',component:Famille},
-        {path:'music',component:Musique},
-        {path:'utilisateur',component:Utilisateur},
-        {path:'quiz',component:IndexQuiz,children:[
-            {path:'',component:ListQuiz},
-            {path:'list',component:ListQuiz},
-            {path:'new',component:AjoutQuiz},
-            {path:'new/qcm',component:AjoutQuiz},
-            {path: 'new/vraiFaux', component: VraiFauxQuiz },
-        
-        ]},
-        {path:'accueil',component:Dashboard},
-        {path:'ajouterContenu',component:AjoutContenu},
-        {path:'conte',component:Conte},
-        {path:'detailConte',component:DetailConte },
-        {path:'photo',component:ContenusArtisanal },
-        {path:'parametre',component:Profil }
+ { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-    ]},
+  { path: 'login', component: Login },
 
-        {path:'login',component:Login }
-    
+  {
+    path: 'accueil',
+    component: Accueil,
+    children: [
+      { path: '', component: Dashboard },
+      { path: 'dashboard', component: Dashboard },
+      { path: 'famille', component: Famille },
+      { path: 'devinette', component: Devinette },
+      { path: 'utilisateur', component: Utilisateur },
+      { path: 'parametre', component: Profil },
+      { path: 'proverbe', component: Proverbe },
+      { path: 'proverbeDetail', component: ProverbDetailsComponent },
+      // : La route 'conte' pointe directement vers la liste
+      { path: 'conte', component: Conte },
+
+      // : Nouvelle route paramétrée pour afficher les détails d'un conte spécifique
+      { path: 'conte/:id', component: DetailConte }, 
+      
+      { path: 'photo', component: ContenusArtisanal },
+
+      {
+        path: 'quiz',
+        component: IndexQuiz,
+        children: [
+          { path: '', component: ListQuiz },
+          { path: 'list', component: ListQuiz },
+          { path: 'new', component: AjoutQuiz },
+          { path: 'new/qcm', component: AjoutQuiz }
+        ],
+      },
+
+      { path: 'ajouterContenu', component: AjoutContenu, canActivate: [adminGuard] },
+    ],
+  },
+
+  
 ];

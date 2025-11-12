@@ -1,246 +1,258 @@
-/* Styles pour le conteneur principal (centrage) */
-.main-content-form-quiz {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centre le contenu horizontalement */
-    padding: 20px;
+/* ============================= */
+/* 🎯 STRUCTURE GLOBALE */
+/* ============================= */
+
+.ajout-quiz-container {
+  max-width: 550px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  font-family: 'Inter', sans-serif;
 }
 
-/* ---------------------------------------------------- */
-/* EN-TÊTE DU FORMULAIRE */
-/* ---------------------------------------------------- */
-
-.form-title {
-    /* Ajouter un nouveau quiz */
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 36px;
-    color: #000000;
-    margin-bottom: 5px;
-    text-align: center;
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
-.form-subtitle {
-    /* Partager un récit... */
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 25px;
-    color: #99928F;
-    margin-bottom: 30px;
-    text-align: center;
+.ajout-quiz-container::before {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  color: #8c8c8c;
+  margin-bottom: 25px;
 }
 
-/* ---------------------------------------------------- */
-/* CARTE DU FORMULAIRE (Rectangle 186) */
-/* ---------------------------------------------------- */
+/* ============================= */
+/* 🎯 FORM SECTIONS */
+/* ============================= */
 
-.quiz-form-card {
-    /* Basé sur Rectangle 186: width: 503px; height: 620px; */
-    width: 100%;
-    max-width: 503px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    padding: 35px 40px;
+.form-section {
+  margin-bottom: 25px;
 }
 
-/* Styles génériques des labels */
-label {
-    font-weight: 700;
-    font-size: 14px;
-    color: #000000;
-    line-height: 36px;
-    display: block;
-    margin-top: 15px;
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-/* Styles génériques des inputs */
-input[type="text"] {
-    width: 100%;
-    height: 30px;
-    padding: 0 10px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    color: #333;
+.form-input,
+.form-textarea,
+.conte-select-input {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* ---------------------------------------------------- */
-/* SÉLECTEUR PERSONNALISÉ (Contes) */
-/* ---------------------------------------------------- */
+.form-input:focus,
+.form-textarea:focus,
+.conte-select-input:focus {
+  border-color: #967B56;
+}
+
+.form-textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* ============================= */
+/* 🎯 SELECT PERSONNALISÉ */
+/* ============================= */
 
 .custom-select-container {
-    position: relative;
-    width: 100%;
-    height: 40px; /* Aligné avec l'ancienne taille de l'input du titre */
-    
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
+  position: relative;
+  width: 100%;
 }
 
-.conte-select-input {
-    /* Cache l'apparence par défaut du select */
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    
-    width: 100%;
-    height: 100%;
-    padding: 0 40px 0 10px; /* Plus d'espace à droite pour la flèche */
-    background: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 14px;
-    color: #333;
-}
-
-/* Style de la flèche (icône Material) */
 .select-arrow {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    font-size: 24px;
-    color: #666;
-    pointer-events: none; /* Assure que le clic passe au select */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  font-size: 22px;
+  color: #8c8c8c;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
+/* ============================= */
+/* 🎯 QUESTIONS */
+/* ============================= */
 
-/* Questions */
-.question-label {
-    /* Questions 1 */
-    font-size: 12px;
+.questions-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;
 }
 
-.question-input {
-    /* Rectangle 78 */
-    height: 30px;
+.question-block {
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fafafa;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-
-.response-type-selection {
-    display: flex;
-    gap: 50px;
-    margin: 25px 0;
-    align-items: center;
+.question-block h4 {
+  font-size: 15px;
+  color: #444;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.radio-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer; /* Ajouté pour indiquer que c'est cliquable */
+/* Inputs dans une question */
+.form-input-small {
+  width: 80px;
+  margin-top: 5px;
+  padding: 5px 8px;
+  font-size: 13px;
 }
 
-.radio-option span {
-    /* QCM / Vrai/Faux */
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
+/* ============================= */
+/* 🎯 PROPOSITIONS */
+/* ============================= */
+
+.propositions-section h5 {
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0;
 }
 
-.custom-radio {
-    /* Ellipse 42 & 40 */
-    width: 25px;
-    height: 25px;
-    background: #EEE3CF; 
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.proposition-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.custom-radio.selected .inner-dot {
-    /* Ellipse 41 (point vert pour sélection) */
-    width: 10px;
-    height: 10px;
-    background: #158B4D ;
-    border-radius: 50%;
+.form-input-inline {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
 }
 
-/* ---------------------------------------------------- */
-/* Réponses QCM */
-/* ---------------------------------------------------- */
-
-.response-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    gap: 10px;
+.checkbox-label {
+  font-size: 13px;
+  color: #444;
 }
 
-.response-item input {
-    /* Réponse 1, 2, 3, 4 */
-    flex-grow: 1;
-    height: 30px;
+.btn-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #FF0D0D;
+  transition: transform 0.2s;
 }
 
-.radio-answer {
-    /* Ellipse 32, 34, 36, 38 */
-    width: 34px;
-    height: 34px;
-    background: #EEE3CF; 
-    border-radius: 50%;
-    flex-shrink: 0;
-    cursor: pointer;
+.btn-remove:hover {
+  transform: scale(1.2);
 }
 
-.delete-icon {
-    /* Vecteurs de la poubelle */
-    color: #FF0D0D; /* Rouge */
-    font-size: 24px;
-    cursor: pointer;
+/* ============================= */
+/* 🎯 BOUTONS */
+/* ============================= */
+
+.btn-add,
+.btn-add-question {
+  background: #158B4D;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
 }
 
-/* ---------------------------------------------------- */
-/* BOUTONS D'ACTIONS */
-/* ---------------------------------------------------- */
-
-.btn {
-    padding: 8px 15px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 14px;
-    transition: background-color 0.2s;
-}
-
-.question-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+.btn-add:hover,
+.btn-add-question:hover {
+  background: #0d6a3a;
 }
 
 .btn-add-question {
-    /* Ajouter une question */
-    background: #967B56; 
-    color: #FFFFFF;
+  background: #967B56;
+  display: block;
+  margin: 0 auto;
 }
 
-.btn-add-response {
-    /* Ajouter une réponse */
-    background: #158B4D; /* Vert */
-    color: #FFFFFF;
+.btn-remove-question {
+  background: none;
+  border: 1px solid #ff5252;
+  color: #ff5252;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.btn-remove-question:hover {
+  background: #ff5252;
+  color: #fff;
+}
+
+/* ============================= */
+/* 🎯 VALIDATION */
+/* ============================= */
+
+.submit-section {
+  text-align: center;
+  margin-top: 30px;
 }
 
 .btn-validate {
-    /* Valider */
-    display: block;
-    width: 150px;
-    height: 45px;
-    margin: 40px auto 0; 
-    background: #967B56; 
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 700;
+  background: #967B56;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-validate:hover {
+  background: #806645;
+}
+
+/* ============================= */
+/* 🎯 RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 600px) {
+  .ajout-quiz-container {
+    padding: 25px 20px;
+    box-shadow: none;
+  }
+
+  .form-input,
+  .form-textarea,
+  .conte-select-input {
+    font-size: 13px;
+  }
 }

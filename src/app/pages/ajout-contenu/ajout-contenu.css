@@ -1,21 +1,14 @@
-/* ajout-contenu.component.css */
-
 .main-content {
     flex-grow: 1;
     padding: 30px 40px;
-    
-    /* MODIFICATION POUR LE CENTRAGE HORIZONTAL */
     display: flex;
-    flex-direction: column; /* Organise le titre, le sous-titre et le formulaire verticalement */
-    align-items: center; /* Centre le contenu (le formulaire, le titre, etc.) horizontalement */
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Le titre et le sous-titre doivent également être centrés */
 .main-title,
 .main-subtitle {
-    /* Assurez-vous que ces éléments prennent toute la largeur pour que le 'align-items: center' fonctionne */
     width: 100%;
-    /* Centrage du texte lui-même */
     text-align: center; 
 }
 
@@ -35,7 +28,6 @@
 }
 
 .form-card {
-    /* La largeur maximale est essentielle pour le centrage */
     width: 100%;
     max-width: 550px; 
     background: #FFFFFF;
@@ -44,11 +36,32 @@
     padding: 30px;
 }
 
-/* ---------------------------------------------------- */
-/* Le reste des styles du formulaire (inchangé) */
-/* ---------------------------------------------------- */
+/* -------------------- FEEDBACKS -------------------- */
 
-/* Form Groups */
+.success-message {
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #4CAF50; /* Vert foncé */
+    background-color: #E8F5E9; /* Vert très clair */
+    color: #388E3C; /* Texte vert */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.success-message i {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+.success-message strong {
+    font-weight: 700;
+}
+
+/* -------------------- FORM ELEMENTS -------------------- */
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -75,6 +88,7 @@
 .form-group select {
     appearance: none;
     background-color: #FFFFFF;
+    /* Icône SVG pour la flèche du select */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -82,7 +96,7 @@
 }
 
 .form-group textarea {
-    height: 100px;
+    height: 120px; /* Légèrement plus grand pour la description/contenu */
     resize: vertical;
 }
 
@@ -176,6 +190,66 @@
     margin-right: 10px;
 }
 
-.submit-button:hover {
+.submit-button:hover:not(:disabled) {
     background: #8C5627;
+}
+
+/* Style lorsque le formulaire n'est pas valide */
+.submit-button:disabled {
+    background: #cccccc; 
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.translation-title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #A36531;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #DCCDBA;
+  padding-bottom: 5px;
+}
+
+.translation-title i {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+file-input-styled {
+    opacity: 0; /* Masquer l'apparence par défaut */
+    position: absolute; /* Positionnement absolu */
+    z-index: -1; /* Mettre derrière */
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+}
+
+/* Remplacer l'input text qui gérait le fichier par un label stylisé pour l'input[type="file"] */
+.form-group label[for] {
+    cursor: pointer;
+    /* Styles pour la clarté */
+}
+
+/* Style pour l'information du fichier pour qu'il agisse comme un bouton */
+.file-info {
+    display: block;
+    padding: 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333333;
+    background-color: #F9F9F9; /* Arrière-plan légèrement gris */
+    cursor: pointer;
+    margin-top: 5px; /* Pour séparer du label */
+    transition: background-color 0.2s;
+}
+
+.file-info:hover {
+    background-color: #EEEEEE;
 }

@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@700&display=swap');
+
+/* ==================== STRUCTURE GLOBALE ==================== */
+.main-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+}
+
+/* ==================== HEADER ==================== */
+.header-contes {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.header-content-container {
+  width: 100%;
+  height: 83px;
+  background: rgba(244, 244, 244, 0.81);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+/* --- Barre de recherche --- */
+.search-bar {
+  width: 375px;
+  max-width: 50%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 0 15px;
+}
+
+.search-bar i {
+  font-size: 21px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-right: 10px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* --- Profil Admin --- */
+.admin-profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.admin-profile-section i.profile-icon {
+  font-size: 26px;
+  color: #333;
+  margin-right: 10px;
+}
+
+.admin-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #967B56;
+}
+
+/* ==================== TITRES ET BOUTON ==================== */
+.title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #222;
+}
+
+.subtitle {
+  color: #99928f;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+/* --- Bouton Ajouter --- */
+.btn-add {
+  background-color: #008236;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: #04672b;
+}
+
+/* ==================== GRILLE DE CARTES ==================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --- Carte --- */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Image --- */
+.card-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* --- Contenu --- */
+.card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* --- Texte du proverbe --- */
+.card-text {
+  font-weight: 600;
+  color: #222;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  min-height: 50px;
+}
+
+/* --- Origine --- */
+.card-origin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.line {
+  height: 1px;
+  width: 25px;
+  background-color: #ccc;
+}
+
+.origin-text {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #b58900;
+}
+
+/* --- Boutons Modifier / Supprimer --- */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.btn-edit,
+.btn-delete {
+  flex: 1;
+  padding: 0.45rem 0;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-edit {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn-edit:hover {
+  background: #f5f5f5;
+}
+
+.btn-delete {
+  background: #d32f2f;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #b71c1c;
+}
+
+/* ==================== MODAL ==================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.6rem;
+}
+
+.modal-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+}
+
+.btn-close-modal i {
+  font-size: 1.5rem;
+}
+
+/* --- Formulaire --- */
+.proverb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #444;
+  display: block; /* Ajout pour une meilleure structure */
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* --- Actions --- */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #ccc;
+}
+
+.btn-primary {
+  background-color: #008236;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #04672b;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .header-content-container {
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    padding: 15px;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

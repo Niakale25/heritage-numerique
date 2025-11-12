@@ -1,0 +1,68 @@
+<div class="devinette-container">
+    <header class="header-contes">
+        <div class="header-content-container">
+            
+            <div class="search-bar">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Recherche">
+            </div>
+            
+            <div class="admin-profile-section">
+                <i class="material-icons profile-icon">person</i>
+                <span class="admin-text">Admin</span>
+            </div>
+            
+        </div>
+    </header>
+
+    <div class="devinette-header">
+        <div class="title">Devinettes Mystérieuses</div>
+
+        <button class="btn-ajouter" (click)="toggleModal(true)">
+            <span class="material-icons">add</span>
+            Ajouter
+        </button>
+    </div>
+
+    <div class="devinette-grid">
+        <div class="devinette-card" *ngFor="let r of Riddles(); trackBy: trackById">
+            
+            <div class="card-top-row">
+                <span class="material-icons lightbulb">lightbulb_outline</span>
+                
+               <div class="devinette-question">{{ r.titre }}</div>
+
+                <div class="card-actions-icons">
+                    <span class="material-icons edit-icon">edit</span> 
+                    <span class="material-icons delete-icon" (click)="deleteRiddle(r.id)">delete_outline</span>
+                </div>
+            </div>
+            
+          <div *ngIf="r.isAnswerVisible" class="reponse">{{ r.description }}</div>
+
+            <div class="masquer-reponse" (click)="toggleAnswer(r.id)">
+                <span class="material-icons">visibility_off</span>
+                {{ r.isAnswerVisible ? 'Masquer la réponse' : 'Afficher la réponse' }}
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" *ngIf="showModal()">
+        <div class="modal">
+            <h2>Nouvelle Devinette</h2>
+
+            <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="modal-form">
+                <label>Question :</label>
+                <textarea formControlName="titre" rows="3" placeholder="Entrez la devinette"></textarea>
+
+                <label>Réponse :</label>
+                <input type="text" formControlName="description" placeholder="Entrez la réponse" />
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel" (click)="toggleModal(false)">Annuler</button>
+                    <button type="submit" class="submit" [disabled]="addForm.invalid">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
