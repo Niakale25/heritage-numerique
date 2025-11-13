@@ -35,6 +35,7 @@ export class AjoutContenu {
       content: [''],
       dateAdded: [''],
       thumbnailUrl: [null],
+      fichierConte: [null], // 🆕 fichier (PDF/audio)
 
       // Proverbe
       text: [''],
@@ -51,6 +52,7 @@ export class AjoutContenu {
       description: [''],
       auteur: [''],
       image: [null],
+       video: [null],
       date: ['']
     });
   }
@@ -109,6 +111,9 @@ export class AjoutContenu {
         if (this.selectedFiles['thumbnailUrl']) {
           formData.append('photoConte', this.selectedFiles['thumbnailUrl']!, this.selectedFiles['thumbnailUrl']!.name);
         }
+         if (this.selectedFiles['fichierConte']) { // 🆕
+    formData.append('fichierConte', this.selectedFiles['fichierConte']!, this.selectedFiles['fichierConte']!.name);
+  }
         break;
 
       // 🟣 PROVERBE
@@ -142,6 +147,9 @@ export class AjoutContenu {
         if (this.selectedFiles['image']) {
           formData.append('photoArtisanat', this.selectedFiles['image']!, this.selectedFiles['image']!.name);
         }
+        if (this.selectedFiles['video']) { // 🆕
+    formData.append('videoArtisanat', this.selectedFiles['video']!, this.selectedFiles['video']!.name);
+  }
         break;
 
       default:

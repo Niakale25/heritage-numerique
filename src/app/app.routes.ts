@@ -35,7 +35,8 @@ export const routes: Routes = [
       { path: 'utilisateur', component: Utilisateur },
       { path: 'parametre', component: Profil },
       { path: 'proverbe', component: Proverbe },
-      { path: 'proverbeDetail', component: ProverbDetailsComponent },
+      { path: 'proverbeDetail/:id', component: ProverbDetailsComponent },
+
       // : La route 'conte' pointe directement vers la liste
       { path: 'conte', component: Conte },
 

@@ -51,6 +51,10 @@
           <textarea formControlName="content" placeholder="Racontez le conte ici..."></textarea>
         </div>
 
+        <label for="fichierConte">Fichier du conte (PDF, audio...) :</label>
+  <input type="file" id="fichierConte" (change)="onFileSelected($event, 'fichierConte')" />
+  <p *ngIf="getFileName('fichierConte')">📎 {{ getFileName('fichierConte') }}</p>
+
 
                 <div class="form-group">
           <label for="conteImage">Image associée :</label>
@@ -132,6 +136,11 @@
           <label>Date :</label>
           <input type="text" formControlName="date" placeholder="Ex : 2025-11-01">
         </div>
+
+        <label for="video">Vidéo de l’artisanat :</label>
+  <input type="file" id="video" accept="video/*" (change)="onFileSelected($event, 'video')" />
+  <p *ngIf="getFileName('video')">🎥 {{ getFileName('video') }}</p>
+
         
                 <div class="form-group">
           <label for="artisanatImage">Image :</label>

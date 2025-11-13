@@ -1,23 +1,7 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
-
 <main class="main-content-user">
-<header class="header-user">
-<div class="header-content-container">
-<div class="search-bar">
-<i class="material-icons">search</i>
-<input type="text" placeholder="Recherche">
-</div>
-<div class="admin-profil-section">
-<span class="material-symbols-outlined">account_circle</span>
-<span class="admin-text">Admin</span>
-</div>
-</div>
-</header>
-
 <h1 class="page-title-users">Utilisateurs</h1>
 
-<div class="pagination-header">
+<div class="pagination-header" style="visibility: hidden; height: 0;">
     <span class="pagination-info">1-50 sur 200</span>
     <div class="pagination-controls">
         <i class="material-icons control-icon">chevron_left</i>
@@ -27,50 +11,44 @@
 
 <div class="users-data-card">
     
-    <!-- EN-TÊTE DU TABLEAU AVEC NOUVELLES COLONNES -->
     <div class="users-table-header">
         <span class="col-utilisateur">Utilisateur</span>
-        <span class="col-famille">Famille</span>
         <span class="col-role">Rôle</span>
         <span class="col-telephone">Téléphone</span>
         <span class="col-email">Email</span>
         <span class="col-date">Date ajout</span>
-        <!-- NOUVELLES COLONNES -->
         <span class="col-status">État</span>
         <span class="col-action">Action</span>
     </div>
     
     <div class="users-table-body">
+        @if (isLoading()) {
+            <div class="loading-message">Chargement des utilisateurs...</div>
+        }
         
-        <!-- BOUCLE @for pour générer les lignes à partir du signal 'users' -->
-        @for (user of users(); track user.id) {
+                @for (user of users(); track user.id) {
             <div class="user-row">
                 <div class="user-details col-utilisateur">
                     <div class="user-avatar">
-                        <!-- Utilisation de la propriété image pour le profil -->
-                        <img [src]="user.image" [alt]="user.name"> 
+                    <img [src]="user.image" [alt]="user.name"> 
                     </div>
-                    <span class="user-name">{{ user.name }}</span>
+                    <span class="user-name">{{ user.name }}</span> 
                 </div>
-                <span class="col-famille">{{ user.family }}</span>
                 <span class="col-role">{{ user.role }}</span>
-                <span class="col-telephone">{{ user.phone }}</span>
-                <span class="col-email">{{ user.email }}</span>
-                <span class="col-date">{{ user.dateAdded }}</span>
+                <span class="col-telephone">{{ user.telephone }}</span>          
+               <span class="col-email">{{ user.email }}</span>
+                <span class="col-date">{{ user.dateAjout | date:'dd/MM/yyyy' }}</span> 
                 
-                <!-- AFFICHAGE DU STATUT (Actif/Inactif) -->
-                <span class="col-status">
-                    <span class="status-badge" [class.active]="user.isActive" [class.inactive]="!user.isActive">
-                        {{ user.isActive ? 'Actif' : 'Inactif' }}
+                     <span class="col-status">
+                    <span class="status-badge" [class.active]="user.actif" [class.inactive]="!user.actif">
+                        {{ user.actif ? 'Actif' : 'Inactif' }}
                     </span>
                 </span>
                 
-                <!-- BOUTON DE BASCULE (SWITCH) -->
-                <span class="col-action">
+                     <span class="col-action">
                     <label class="switch">
-                        <!-- Liaison des événements et de l'état -->
                         <input type="checkbox" 
-                            [checked]="user.isActive"
+                            [checked]="user.actif"
                             (change)="toggleUserStatus(user)">
                         <span class="slider round"></span>
                     </label>
@@ -78,11 +56,10 @@
             </div>
         }
         @empty {
-            <div class="no-users-message">Aucun utilisateur trouvé.</div>
+            @if (!isLoading()) {
+                <div class="no-users-message">Aucun utilisateur trouvé.</div>
+            }
         }
-        
     </div>
 </div>
-
-
 </main>

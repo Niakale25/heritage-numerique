@@ -1,8 +1,8 @@
-<div class="page-container">
+<div class="page-container" *ngIf="proverbData() as proverb">
   <!-- Image de fond -->
   <div
     class="background"
-    [style.background-image]="'url(' + proverbData().backgroundImageUrl + ')'">
+    [style.background-image]="'url(' + (proverb.urlPhoto || proverb.photoProverbe || 'assets/images/baobab.jpg') + ')'">
   </div>
 
   <!-- Overlay principal -->
@@ -11,17 +11,18 @@
   <!-- Carte principale -->
   <div class="overlay-2">
     <p class="proverb-text">
-      "{{ proverbData().text }}"
+      "{{ proverb.titre }}"
     </p>
 
-    <!-- Lignes décoratives -->
     <div class="line-left"></div>
-    <span class="origin">{{ proverbData().origin }}</span>
+    <span class="origin">{{ proverb.origineProverbe || 'Origine inconnue' }}</span>
     <div class="line-right"></div>
 
     <h2 class="signification-title">Signification</h2>
     <p class="signification-text">
-      {{ proverbData().signification }}
+      {{ proverb.significationProverbe }}
     </p>
+
+    <button (click)="goBack()" class="btn-back">← Retour</button>
   </div>
 </div>

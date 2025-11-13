@@ -1,4 +1,3 @@
-/* Le CSS a été inclus ici */
 .main-content-user{
   flex-grow: 1;
   padding: 24px 30px;
@@ -98,12 +97,20 @@
   position: relative;
 }
 
-/* MISE À JOUR : Structure de colonne du tableau (Ajout de 2 colonnes) */
+/* 🎯 MISE À JOUR MAJEURE : AJUSTEMENT DE GRILLE POUR L'ALIGNEMENT */
 .users-table-header,
 .user-row{
   display: grid;
-  /* Nouvelle grille : 6 colonnes existantes + 80px (État) + 80px (Action) */
-  grid-template-columns: 150px 1fr 110px 120px 1fr 120px 80px 80px;
+  /* Nouvelles largeurs: 
+     - Utilisateur (180px pour le nom long)
+     - Rôle (120px)
+     - Téléphone (120px)
+     - Email (1fr prend tout l'espace restant)
+     - Date ajout (120px)
+     - État (80px)
+     - Action (80px) 
+  */
+  grid-template-columns: 200px 120px 120px 300px 120px 80px 80px; 
   gap: 10px;
   align-items: center;
   padding: 0 20px;
@@ -182,7 +189,7 @@
     background: #eee;
 }
 
-/* --- NOUVEAU : Style pour la Pastille de Statut (État) --- */
+/* --- Style pour la Pastille de Statut (État) --- */
 .col-status {
     display: flex;
     justify-content: center;
@@ -211,7 +218,7 @@
   border: 1px solid #f5222d;
 }
 
-/* --- NOUVEAU : Style pour le Bouton de Bascule (Switch Toggle) --- */
+/* --- Style pour le Bouton de Bascule (Switch Toggle) --- */
 
 /* Conteneur de la bascule */
 .switch {
@@ -284,8 +291,8 @@ input:checked + .slider:before {
 @media (max-width: 1024px) {
     .users-table-header,
     .user-row {
-        /* Ajustement de la grille pour les petits écrans */
-        grid-template-columns: 150px 1fr 100px 100px 1fr 100px 70px 70px; 
+        /* Ajustement de grille pour les écrans moyens */
+        grid-template-columns: 150px 100px 100px 1fr 100px 70px 70px; 
         font-size: 13px;
     }
 }
@@ -311,9 +318,9 @@ input:checked + .slider:before {
     
     .users-table-header,
     .user-row {
-        /* Largeur minimale augmentée pour accueillir les nouvelles colonnes */
+        /* Largeur minimale augmentée et grilles ajustées pour un alignement correct */
         width: 1000px; 
-        grid-template-columns: 150px 120px 100px 100px 180px 100px 80px 70px;
+        grid-template-columns: 150px 100px 100px 180px 100px 80px 70px;
     }
     
     .pagination-header {
